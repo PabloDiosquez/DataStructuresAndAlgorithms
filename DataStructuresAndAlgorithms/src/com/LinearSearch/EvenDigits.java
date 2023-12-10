@@ -54,7 +54,6 @@ public class EvenDigits {
         if (number == 0) {
             return 1;
         }
-
         // Calculate the number of digits using the logarithm function
         // The Math.abs(number) ensures that the input is non-negative
         // The expression (int)Math.log10(Math.abs(number)) + 1 calculates the count of digits
