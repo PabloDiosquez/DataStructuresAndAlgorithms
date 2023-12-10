@@ -13,7 +13,7 @@ public class FindMin {
     }
 
     // Method to find the minimum value in an array of integers
-    static int min(int[] numbers) throws Exception {
+    public static int min(int[] numbers) throws Exception {
         // Check if the input array is empty, and throw an exception if true
         if (numbers.length == 0) throw new Exception("The array is empty.");
 
