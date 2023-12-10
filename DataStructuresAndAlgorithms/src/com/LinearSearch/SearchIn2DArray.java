@@ -2,7 +2,29 @@ package com.LinearSearch;
 
 public class SearchIn2DArray {
     public static void main(String[] args) {
+        // Example 2D array
+        int[][] exampleArray = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
 
+        // Example target for search
+        int targetSearch = 5;
+
+        try {
+            // Call the search function and print the result
+            int[] searchResult = search(exampleArray, targetSearch);
+            System.out.println("Search Result: [" + searchResult[0] + ", " + searchResult[1] + "]");
+
+            // Call the max function and print the result
+            int[] maxResult = max(exampleArray);
+            System.out.println("Max Value Index: [" + maxResult[0] + ", " + maxResult[1] + "]");
+
+        } catch (Exception e) {
+            // Handle exceptions
+            System.out.println("Exception: " + e.getMessage());
+        }
     }
 
     static int[] search(int[][] arr, int target) throws Exception {
@@ -43,7 +65,6 @@ public class SearchIn2DArray {
                 }
             }
         }
-
         return new int[]{rowMax, colMax};
     }
 }
