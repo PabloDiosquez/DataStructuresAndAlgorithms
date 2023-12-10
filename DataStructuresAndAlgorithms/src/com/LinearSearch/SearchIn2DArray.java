@@ -21,4 +21,29 @@ public class SearchIn2DArray {
         }
         return new int[] {-1, -1};
     }
+
+    static int[] max(int[][] arr) throws Exception {
+        // Check if the 2D array is null
+        if (arr == null) throw new Exception("The array is null.");
+
+        // Check if the 2D array is empty
+        if (arr.length == 0 || arr[0].length == 0) {
+            throw new Exception("The array is empty.");
+        }
+
+        int rowMax = 0, colMax = 0;
+        int max = arr[rowMax][colMax];
+
+        for (int row = 0; row < arr.length; row++) {
+            for (int col = 0; col < arr[row].length; col++) {
+                if (max < arr[row][col]) {
+                    max = arr[row][col];
+                    rowMax = row;
+                    colMax = col;
+                }
+            }
+        }
+
+        return new int[]{rowMax, colMax};
+    }
 }
