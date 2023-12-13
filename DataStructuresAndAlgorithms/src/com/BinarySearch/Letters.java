@@ -3,8 +3,8 @@ package com.BinarySearch;
 public class Letters {
     public static void main(String[] args) {
         // Example usage of indexOfSmallestLetterGreaterThan
-        char[] sortedArray1 = {'a', 'c', 'e', 'g', 'i'};
-        char target1 = 'h';
+        char[] sortedArray1 = {'c', 'd', 'e', 'g', 'i'};
+        char target1 = 'i';
         try {
             char result1 = nextGreatestLetter(sortedArray1, target1);
             System.out.println("Smallest letter greater than '" + target1 + "': " + result1);
@@ -13,8 +13,8 @@ public class Letters {
         }
 
         // Example usage of indexOfSmallestLetterGreaterThanV2
-        char[] sortedArray2 = {'b', 'd', 'f', 'h', 'j'};
-        char target2 = 'z';
+        char[] sortedArray2 = {'c', 'f', 'j',};
+        char target2 = 'a';
         try {
             char result2 = nextGreatestLetterV2(sortedArray2, target2);
             System.out.println("Smallest letter greater than '" + target2 + "': " + result2);
@@ -45,11 +45,10 @@ public class Letters {
         // Linear search loop
         while (start <= end) {
             middle = start + (end - start) / 2;
-            if (sortedArray[middle] == target) return sortedArray[middle++];
-            else if (sortedArray[middle] < target) start = middle + 1;
+            if (sortedArray[middle] <= target) start = middle + 1;
             else end = middle - 1;
         }
-        return sortedArray[start];
+        return sortedArray[start % sortedArray.length];
     }
 
     /**
