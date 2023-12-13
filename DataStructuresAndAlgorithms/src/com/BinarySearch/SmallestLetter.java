@@ -1,6 +1,6 @@
 package com.BinarySearch;
 
-public class Letters {
+public class SmallestLetter {
     public static void main(String[] args) {
         // Example usage of indexOfSmallestLetterGreaterThan
         char[] sortedArray1 = {'c', 'd', 'e', 'g', 'i'};
@@ -14,7 +14,7 @@ public class Letters {
 
         // Example usage of indexOfSmallestLetterGreaterThanV2
         char[] sortedArray2 = {'c', 'f', 'j',};
-        char target2 = 'a';
+        char target2 = 'j';
         try {
             char result2 = nextGreatestLetterV2(sortedArray2, target2);
             System.out.println("Smallest letter greater than '" + target2 + "': " + result2);
@@ -33,9 +33,6 @@ public class Letters {
     static char nextGreatestLetter(char[] sortedArray, char target) throws Exception {
         // Check if the array of characters is empty
         if (sortedArray.length == 0) throw new Exception("The array of characters is empty.");
-
-        // Check if the largest element in the array is smaller than the target
-        if (sortedArray[sortedArray.length - 1] < target) return sortedArray[0];
 
         // Initialize variables for linear search
         int start = 0;
@@ -63,7 +60,7 @@ public class Letters {
         if (sortedArray.length == 0) throw new Exception("The array of characters is empty.");
 
         // Check if the largest element in the array is smaller than the target
-        if (sortedArray[sortedArray.length - 1] < target) return sortedArray[0];
+        if (sortedArray[sortedArray.length - 1] <= target) return sortedArray[0];
 
         // Initialize variables for binary search
         int start = 0;
@@ -82,7 +79,6 @@ public class Letters {
                 end = middle - 1;   // Move the end index to the left of the middle
             }
         }
-
         // Return the index of the smallest letter greater than the target
         return sortedArray[middle];
     }
