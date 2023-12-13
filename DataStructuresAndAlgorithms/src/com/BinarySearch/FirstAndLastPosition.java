@@ -37,8 +37,13 @@ public class FirstAndLastPosition {
      * * Complexity: O(log(n))
      */
     static int[] searchRange(int[] nums, int target) throws Exception {
+        int[] answer = new int[2];
         // Utilizes the 'index' method to find the first and last occurrence indices.
-        return new int[]{index(nums, target, true), index(nums, target, false)};
+        answer[0] = index(nums, target, true);
+        if(answer[0] != -1){
+            answer[1] = index(nums, target, false);
+        }
+        return answer;
     }
 
     /**
