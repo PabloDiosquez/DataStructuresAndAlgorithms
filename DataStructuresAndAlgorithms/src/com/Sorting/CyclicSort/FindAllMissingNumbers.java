@@ -1,5 +1,8 @@
 package com.Sorting.CyclicSort;
 
+// Given an array 'numbers' of n integers where numbers[i] is in the range [1, n], return an array of
+// all the integers in the range [1, n] that do not appear in numbers.
+
 import java.util.ArrayList;
 import java.util.List;
 
