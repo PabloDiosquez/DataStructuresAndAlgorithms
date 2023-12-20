@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class MergeSortInPlace {
     public static void main(String[] args) {
-        int[] arr = {4,5,1,2,3};
-        merge(arr, 0, 2, arr.length);
+        int[] arr = {4, 1, 3, 5, 6, 0, 2};
+        mergeSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -14,9 +14,11 @@ public class MergeSortInPlace {
     }
 
     static void _mergeSort(int[] arr, int start, int end){
-        if(arr.length == 1) return;
+        if(end - start == 1) return;
 
-        int middle = start + (end - start) / 2;
+        int middle = (start + end) / 2;
+        _mergeSort(arr, start, middle);
+        _mergeSort(arr, middle, end);
         merge(arr, start, middle, end);
     }
 
@@ -47,8 +49,7 @@ public class MergeSortInPlace {
         }
 
         for (int l = 0; l < mix.length; l++) {
-            arr[start+l] = mix[l];
+            arr[start + l] = mix[l];
         }
     }
-
 }
