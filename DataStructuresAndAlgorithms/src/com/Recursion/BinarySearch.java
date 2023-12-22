@@ -11,7 +11,7 @@ public class BinarySearch {
      */
     public static void main(String[] args) {
         int[] sortedArr = {3, 5, 7, 11, 14, 20};
-        System.out.println(binarySearch(sortedArr, 2));
+        System.out.println(binarySearch(sortedArr, 14));
     }
 
     /**
@@ -32,7 +32,7 @@ public class BinarySearch {
      * @param end The ending index of the search range.
      * @return The index of the target element if found, otherwise -1.
      */
-    static int _binarySearch(int[] sortedArr, int target, int start, int end) {
+    private static int _binarySearch(int[] sortedArr, int target, int start, int end) {
         if (end < start) {
             // Base case: target not found in the current range
             return -1;
