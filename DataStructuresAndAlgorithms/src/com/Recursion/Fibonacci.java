@@ -11,7 +11,7 @@ public class Fibonacci {
      * @param args Command-line arguments (not used in this example).
      */
     public static void main(String[] args) {
-        System.out.println(fibo(4));
+        System.out.println(fibo(5));
     }
 
     /**
