@@ -23,7 +23,6 @@ public class NumberOfSteps {
 
     /**
      * Calculates the number of steps required to reduce a given integer to zero.
-     *
      * @param number The integer to be reduced.
      * @return The number of steps required to reduce the integer to zero.
      */
