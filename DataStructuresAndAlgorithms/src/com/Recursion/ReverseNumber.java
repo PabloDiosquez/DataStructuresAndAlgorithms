@@ -1,9 +1,5 @@
 package com.Recursion;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * The ReverseNumber class provides a method to reverse the digits of an integer.
  */
@@ -16,7 +12,7 @@ public class ReverseNumber {
      */
     public static void main(String[] args) {
         // Example: Reversing the digits of the number 2300
-        System.out.println(reverse(2300));
+        System.out.println(reverseV1(2371));
     }
 
     /**
@@ -25,7 +21,7 @@ public class ReverseNumber {
      * @param number The integer to be reversed.
      * @return The integer with its digits reversed.
      */
-    static int reverse(int number) {
+    static int reverseV1(int number) {
         // Base case: If the number is 0, return 0 (no change).
         if (number == 0) {
             return 0;
@@ -33,8 +29,9 @@ public class ReverseNumber {
 
         // Extract the last digit of the number.
         int lastDigit = number % 10;
-
+        // Count the number of digits of the number.
+        int digits = (int) Math.log10(number);
         // Reverse the remaining digits using recursion and concatenate with the last digit.
-        return (int) (lastDigit * Math.pow(10, (int) Math.log10(number)) + reverse(number / 10));
+        return (int) (lastDigit * Math.pow(10, digits) + reverseV1(number / 10));
     }
 }
