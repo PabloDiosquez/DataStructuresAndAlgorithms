@@ -59,21 +59,41 @@ public class MultipleOccurrences {
         return _findAllIndices(arr, target, indices, index + 1);
     }
 
-    static List<Integer> findAllIndicesV2(int[] arr, int target){
+    /**
+     * Finds all occurrences of the target value in the given array.
+     *
+     * @param arr    The array to search for occurrences.
+     * @param target The target value to find in the array.
+     * @return A list of indices where the target value is found in the array.
+     */
+    static ArrayList<Integer> findAllIndicesV2(int[] arr, int target) {
         return _findAllIndicesV2(arr, target, 0);
     }
 
-    static List<Integer> _findAllIndicesV2(int[] arr, int target, int index){
-        List<Integer> list = new ArrayList<>();
-        if(index == arr.length){
+    /**
+     * Helper method that recursively finds all occurrences of the target value in the array.
+     *
+     * @param arr     The array to search for occurrences.
+     * @param target  The target value to find in the array.
+     * @param index   The current index being checked in the array.
+     * @return A list of indices where the target value is found in the array.
+     */
+    static ArrayList<Integer> _findAllIndicesV2(int[] arr, int target, int index) {
+        ArrayList<Integer> list = new ArrayList<>();
+
+        // Base case: end of the array is reached
+        if (index == arr.length) {
             return list;
         }
 
-        if(arr[index] == target){
+        // Check if the current element is equal to the target value
+        if (arr[index] == target) {
             list.add(index);
         }
 
-        list.addAll(_findAllIndicesV2(arr, target, index+1));
+        // Recursive call to check the rest of the array
+        list.addAll(_findAllIndicesV2(arr, target, index + 1));
+
         return list;
     }
 }
