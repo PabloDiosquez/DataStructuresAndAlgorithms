@@ -18,8 +18,10 @@ public class MultipleOccurrences {
     public static void main(String[] args) {
         int[] arr = {1, 3, 4, 3, 5, 3, 3, 7};
         List<Integer> indices = findAllIndices(arr, 3);
+        List<Integer> indicesV2 = findAllIndicesV2(arr, 3);
 
         System.out.println(indices);
+        System.out.println(indicesV2);
     }
 
     /**
@@ -55,5 +57,23 @@ public class MultipleOccurrences {
 
         // Recursive call to check the rest of the array
         return _findAllIndices(arr, target, indices, index + 1);
+    }
+
+    static List<Integer> findAllIndicesV2(int[] arr, int target){
+        return _findAllIndicesV2(arr, target, 0);
+    }
+
+    static List<Integer> _findAllIndicesV2(int[] arr, int target, int index){
+        List<Integer> list = new ArrayList<>();
+        if(index == arr.length){
+            return list;
+        }
+
+        if(arr[index] == target){
+            list.add(index);
+        }
+
+        list.addAll(_findAllIndicesV2(arr, target, index+1));
+        return list;
     }
 }
