@@ -19,9 +19,7 @@ public class MultipleOccurrences {
         int[] arr = {1, 3, 4, 3, 5, 3, 3, 7};
         List<Integer> indices = findAllIndices(arr, 3);
 
-        for (int i : indices) {
-            System.out.println(i);
-        }
+        System.out.println(indices);
     }
 
     /**
