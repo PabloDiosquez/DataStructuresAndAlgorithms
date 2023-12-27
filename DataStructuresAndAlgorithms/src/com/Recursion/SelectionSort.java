@@ -13,7 +13,8 @@ public class SelectionSort {
      */
     public static void main(String[] args) {
         int[] arr = {3, 4, 7, 1, 8, 0};
-        selectionSort(arr);
+        selection(arr);
+        // selectionSort(arr);
         System.out.println("Sorted Array: " + Arrays.toString(arr));
     }
 
@@ -22,8 +23,42 @@ public class SelectionSort {
      *
      * @param array The array to be sorted.
      */
+    public static void selection(int[] array) {
+        _selection(array, array.length, 0, 0);
+    }
+
+    /**
+     * Recursively performs the selection sort algorithm.
+     *
+     * @param arr The array to be sorted.
+     * @param r   The remaining number of elements to be sorted.
+     * @param c   The current index in the array.
+     * @param max The index of the maximum element found so far in the current iteration.
+     */
+    private static void _selection(int[] arr, int r, int c, int max) {
+        if (r == 0) {
+            return;
+        }
+
+        if (c < r) {
+            if (arr[c] > arr[max]) {
+                _selection(arr, r, c + 1, c);
+            } else {
+                _selection(arr, r, c + 1, max);
+            }
+        } else {
+            swap(arr, r - 1, max);
+            _selection(arr, r - 1, 0, 0);
+        }
+    }
+
+    /**
+     * Sorts an array using the Selection Sort algorithm.
+     *
+     * @param array The array to be sorted.
+     */
     public static void selectionSort(int[] array) {
-        sort(array, 0);
+        _selection(array, 0);
     }
 
     /**
@@ -32,14 +67,14 @@ public class SelectionSort {
      * @param array The array to be sorted.
      * @param index The current index in the array.
      */
-    private static void sort(int[] array, int index) {
+    private static void _selection(int[] array, int index) {
         if (index == array.length - 1) {
             return;
         }
 
         int minIndex = findMinIndex(array, index);
         swap(array, index, minIndex);
-        sort(array, index + 1);
+        _selection(array, index + 1);
     }
 
     /**
