@@ -10,13 +10,36 @@ public class Stream {
      * @param args The command-line arguments (not used in this example).
      */
     public static void main(String[] args) {
-        String str = "Batman is the best hero ever!";
+        String str = "Java is a powerful programming language. Java is widely used.";
+
+        // Using skipWord method
+        System.out.println(skipWord(str, "Java"));
 
         // Using skipV1 method
         skipV1(str, 'e');
 
         // Using skipV2 method and printing the result
         System.out.println(skipV2(str, 'e'));
+    }
+
+    /**
+     * Skips occurrences of a specified word in the given String using recursion.
+     * @param p The input String to process.
+     * @param word The word to skip.
+     * @return The resulting String after skipping occurrences of the specified word.
+     */
+    static String skipWord(String p, String word) {
+        if (p.isEmpty()) {
+            return "";
+        }
+
+        if (p.startsWith(word)) {
+            // If the current substring starts with the specified word, skip it and continue with the rest of the String
+            return skipWord(p.substring(word.length()), word);
+        } else {
+            // If the current substring does not start with the specified word, include the first character and continue
+            return p.charAt(0) + skipWord(p.substring(1), word);
+        }
     }
 
     /**
