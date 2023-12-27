@@ -21,6 +21,28 @@ public class Stream {
 
     /**
      * Skips occurrences of a specified character in the given String using recursion.
+     * @param p The input String to process.
+     * @param ch The character to skip.
+     * @return The resulting String after skipping the specified character.
+     */
+    static String skip(String p, char ch) {
+        if (p.isEmpty()) {
+            return "";
+        }
+
+        char c = p.charAt(0);
+
+        if (c == ch) {
+            // If the current character matches the specified character, skip it and continue with the rest of the String
+            return skip(p.substring(1), ch);
+        } else {
+            // If the current character does not match, include it in the result and continue with the rest of the String
+            return c + skip(p.substring(1), ch);
+        }
+    }
+
+    /**
+     * Skips occurrences of a specified character in the given String using recursion.
      * @param up The input String to process.
      * @param ch The character to skip.
      */
