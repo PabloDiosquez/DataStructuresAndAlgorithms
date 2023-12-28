@@ -6,7 +6,7 @@ public class Subset {
     public static void main(String[] args) {
         String s = "abc";
         //subsets(s);
-        System.out.println(substrings(s, "", new ArrayList<String>(), new ArrayList<String>()));
+        System.out.println(substrings(s));
     }
 
     /**
@@ -41,29 +41,64 @@ public class Subset {
 
     // ##############################################
 
-    static ArrayList<String> substrings(String up, String p, ArrayList<String> first, ArrayList<String> second){
-        if(up.isEmpty()){
-            first.addAll(second);
-            return first;
+    /**
+     * Generates all possible substrings of the given string.
+     *
+     * @param s The input string.
+     * @return An ArrayList containing all possible substrings of the input string.
+     */
+    public static ArrayList<String> substrings(String s) {
+        return _substrings(s, "");
+    }
+
+    /**
+     * Recursively generates all possible substrings of the given string.
+     *
+     * @param up The remaining portion of the input string.
+     * @param p  The current substring being generated.
+     * @return An ArrayList containing all possible substrings of the input string.
+     */
+    private static ArrayList<String> _substrings(String up, String p) {
+        if (up.isEmpty()) {
+            ArrayList<String> list = new ArrayList<>();
+            list.add(p);
+            return list;
         }
 
         char ch = up.charAt(0);
-        second.add(ch + p);
-        first.add(p);
-        return substrings(up.substring(1), ch+p, first, second);
+        ArrayList<String> left = _substrings(up.substring(1), ch + p);
+        ArrayList<String> right = _substrings(up.substring(1), p);
 
-    }
-    private static void addToEveryone(char c, ArrayList<String> strings){
-        _addToEveryone(c, new ArrayList<String>(), strings, 0);
+        left.addAll(right);
+        return left;
     }
 
-    private static ArrayList<String> _addToEveryone(char c, ArrayList<String> actual, ArrayList<String> old, int index){
-        if(index == old.size()){
+    /**
+     * Unused function: Adds a character to everyone in the list.
+     *
+     * @param c      The character to add.
+     * @param strings The list of strings.
+     */
+    private static void addToEveryone(char c, ArrayList<String> strings) {
+        _addToEveryone(c, new ArrayList<>(), strings, 0);
+    }
+
+    /**
+     * Unused function: Recursively adds a character to everyone in the list.
+     *
+     * @param c      The character to add.
+     * @param actual The current list being generated.
+     * @param old    The original list of strings.
+     * @param index  The current index in the original list.
+     * @return An ArrayList containing strings with the added character.
+     */
+    private static ArrayList<String> _addToEveryone(char c, ArrayList<String> actual, ArrayList<String> old, int index) {
+        if (index == old.size()) {
             return actual;
         }
 
         String s = c + old.get(index);
         actual.add(s);
-        return _addToEveryone(c, actual, old, index+1);
+        return _addToEveryone(c, actual, old, index + 1);
     }
 }
