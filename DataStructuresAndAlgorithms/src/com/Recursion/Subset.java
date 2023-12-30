@@ -1,6 +1,7 @@
 package com.Recursion;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Subset {
     public static void main(String[] args) {
@@ -73,14 +74,30 @@ public class Subset {
         return left;
     }
 
+    public static List<List<Integer>> subsets(int[] arr){
+        List<List<Integer>> outer = new ArrayList<>();
+
+        outer.add(new ArrayList<>());
+
+        for(int number: arr){
+            int size = outer.size();
+            for (int i = 0; i < size; i++) {
+                List<Integer> internal = new ArrayList<>(outer.get(i));
+                internal.add(number);
+                outer.add(internal);
+            }
+        }
+        return outer;
+    }
+
     /**
      * Unused function: Adds a character to everyone in the list.
      *
      * @param c      The character to add.
      * @param strings The list of strings.
      */
-    private static void addToEveryone(char c, ArrayList<String> strings) {
-        _addToEveryone(c, new ArrayList<>(), strings, 0);
+    private static ArrayList<String> addToEveryone(char c, ArrayList<String> strings) {
+        return _addToEveryone(c, new ArrayList<>(), strings, 0);
     }
 
     /**
