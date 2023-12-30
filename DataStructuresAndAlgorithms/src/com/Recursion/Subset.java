@@ -1,6 +1,7 @@
 package com.Recursion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Subset {
@@ -8,6 +9,9 @@ public class Subset {
         String s = "abc";
         //subsets(s);
         System.out.println(substrings(s));
+
+        int[] arr = {3,5,1};
+        System.out.println(subsets(arr));
     }
 
     /**
@@ -74,6 +78,30 @@ public class Subset {
         return left;
     }
 
+    /**
+     * Generates all subsets of an array of integers.
+     *
+     * This method takes an array of integers as input and returns a list of lists representing
+     * all possible subsets of the input array.
+     *
+     * @param arr The input array of integers for which subsets are generated.
+     * @return A list of lists containing all possible subsets of the input array.
+     *
+     * @throws NullPointerException If the input array is {@code null}.
+     *
+     * @example
+     * <pre>
+     * {@code
+     * int[] inputArray = {1, 2, 3};
+     * List<List<Integer>> result = subsets(inputArray);
+     * System.out.println(result);
+     * }
+     * </pre>
+     * Output:
+     * <pre>
+     * [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+     * </pre>
+     */
     public static List<List<Integer>> subsets(int[] arr){
         List<List<Integer>> outer = new ArrayList<>();
 
