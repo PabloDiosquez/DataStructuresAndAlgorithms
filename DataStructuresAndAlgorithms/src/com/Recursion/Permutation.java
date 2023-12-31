@@ -1,5 +1,8 @@
 package com.Recursion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The Permutation class generates and prints all permutations of a given string.
  */
@@ -12,7 +15,26 @@ public class Permutation {
      */
     public static void main(String[] args) {
         String s = "abc";
-        permutations("", s);
+        // permutations("", s);
+        System.out.println(permutationsList("", s));
+    }
+
+    static List<String> permutationsList(String p, String up){
+        if(up.isEmpty()){
+            ArrayList<String> list = new ArrayList<>();
+            list.add(p);
+            return list;
+        }
+
+        char ch = up.charAt(0);
+        ArrayList<String> ans = new ArrayList<>();
+        for (int i = 0; i <= p.length(); i++) {
+            String f = p.substring(0, i);
+            String s = p.substring(i);
+            ans.addAll(permutationsList(f+ch+s, up.substring(1)));
+
+        }
+        return ans;
     }
 
     /**
