@@ -2,11 +2,21 @@ package com.Recursion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {5, 1, 7, 8, 0, -12, 5};
-        System.out.println(Arrays.toString(mergeSort(arr)));
+        Random rand = new Random();
+        int[] numbers = new int[10];
+
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = rand.nextInt(100000);
+        }
+        System.out.println("Unsorted:");
+        System.out.println(Arrays.toString(numbers));
+
+        System.out.println("\nSorted:");
+        System.out.println(Arrays.toString(mergeSort(numbers)));
     }
 
     static int[] mergeSort(int[] arr){
