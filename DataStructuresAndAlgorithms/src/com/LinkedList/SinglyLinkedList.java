@@ -1,7 +1,16 @@
 package com.LinkedList;
 
 public class SinglyLinkedList {
+    public static void main(String[] args) {
+        SinglyLinkedList list = new SinglyLinkedList();
 
+        list.insertFirst(3);
+        list.insertFirst(25);
+        list.insertFirst(11);
+        list.insertFirst(-12);
+
+        list.display();
+    }
     private Node head;
 
     private Node tail;
@@ -16,12 +25,19 @@ public class SinglyLinkedList {
         Node node = new Node(value);
         node.next = this.head;
         this.head = node;
-
         if(this.tail == null){
             this.tail = this.head;
         }
-
         this.size++;
+    }
+
+    public void display(){
+        Node temp = this.head;
+        while(temp != null){
+            System.out.print(temp.value + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("END");
     }
     private class Node{
         private int value;
