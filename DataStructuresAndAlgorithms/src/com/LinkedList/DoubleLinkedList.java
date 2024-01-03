@@ -10,6 +10,8 @@ public class DoubleLinkedList {
         list.insertFirst(10);
 
         list.display();
+        System.out.println();
+        list.displayRev();
     }
 
     private Node head;
@@ -41,7 +43,19 @@ public class DoubleLinkedList {
         System.out.print("END");
     }
 
+    public void displayRev(){
+        Node last = this.head;
+        while(last.next != null){
+            last = last.next;
+        }
 
+        while(last != null){
+            System.out.print(last.value + " -> ");
+            last = last.prev;
+        }
+        System.out.print("END");
+    }
+    
     private class Node{
         private int value;
         private Node next;
