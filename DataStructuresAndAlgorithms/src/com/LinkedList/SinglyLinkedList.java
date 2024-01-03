@@ -105,13 +105,13 @@ public class SinglyLinkedList {
             return deleteFirst();
         }
 
-        if(index == this.size){
+        if(index == this.size-1){
             return deleteLast();
         }
 
-        Node node = this.get(index-1);
-        int value = node.next.value;
-        node.next = node.next.next;
+        Node prev = this.get(index-1);
+        int value = prev.next.value;
+        prev.next = prev.next.next;
         this.size--;
         return value;
     }
@@ -122,6 +122,17 @@ public class SinglyLinkedList {
             temp = temp.next;
         }
         return temp;
+    }
+
+    public Node find(int value){
+        Node temp = this.head;
+        while(temp != null){
+            if(temp.value == value){
+                return temp;
+            }
+            temp = temp.next;
+        }
+        return null;
     }
 
     public void display(){
