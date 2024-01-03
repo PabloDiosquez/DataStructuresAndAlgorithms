@@ -10,9 +10,13 @@ public class SinglyLinkedList {
         list.insertFirst(-12);
 
         list.display();
-        list.insertLast(45);
-        list.insert(-1, 3);
-        int item = list.deleteFirst();
+        // list.insertLast(45);
+        // list.insert(-1, 3);
+        // int item = list.deleteFirst();
+        // list.display();
+        // System.out.println(list.get(2));
+        // list.deleteLast();
+        list.delete(2);
         list.display();
     }
     private Node head;
@@ -81,19 +85,43 @@ public class SinglyLinkedList {
     }
 
     public int deleteLast() throws Exception {
-        int value = this.tail.value;
         if(this.size <= 1){
             return this.deleteFirst();
         }
 
+        int value = this.tail.value;
         Node temp = this.head;
-        while(temp.next.next == null){
+        while(temp.next.next != null){
             temp = temp.next;
         }
         this.tail = temp;
         this.tail.next = null;
         this.size--;
         return value;
+    }
+
+    public int delete(int index) throws Exception{
+        if(index == 0){
+            return deleteFirst();
+        }
+
+        if(index == this.size){
+            return deleteLast();
+        }
+
+        Node node = this.get(index-1);
+        int value = node.next.value;
+        node.next = node.next.next;
+        this.size--;
+        return value;
+    }
+
+    public Node get(int index){
+        Node temp = this.head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
     }
 
     public void display(){
@@ -118,6 +146,11 @@ public class SinglyLinkedList {
 
         public Node(Node node){
             this(node.value, node.next);
+        }
+
+        @Override
+        public String toString() {
+            return "Node value: %s".formatted(this.value);
         }
     }
 
