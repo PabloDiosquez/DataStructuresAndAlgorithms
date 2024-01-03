@@ -30,6 +30,16 @@ public class SinglyLinkedList {
         }
         this.size++;
     }
+    public void insertLast(int value){
+        if(this.tail == null){
+            this.insertFirst(value);
+            return;
+        }
+        Node node = new Node(value);
+        this.tail.next = node;
+        this.tail      = node;
+        this.size++;
+    }
 
     public void display(){
         Node temp = this.head;
