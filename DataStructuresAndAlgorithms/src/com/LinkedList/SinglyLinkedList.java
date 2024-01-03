@@ -1,7 +1,7 @@
 package com.LinkedList;
 
 public class SinglyLinkedList {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         SinglyLinkedList list = new SinglyLinkedList();
 
         list.insertFirst(3);
@@ -12,6 +12,7 @@ public class SinglyLinkedList {
         list.display();
         list.insertLast(45);
         list.insert(-1, 3);
+        int item = list.deleteFirst();
         list.display();
     }
     private Node head;
@@ -63,6 +64,36 @@ public class SinglyLinkedList {
         }
         temp.next = new Node(value, temp.next);
         this.size++;
+    }
+
+    public int deleteFirst() throws Exception {
+        if(this.size == 0){
+            throw new Exception("Empty list...");
+        }
+
+        int value = this.head.value;
+        this.head = this.head.next;
+        if(this.head == null){
+            this.tail = null;
+        }
+        this.size--;
+        return value;
+    }
+
+    public int deleteLast() throws Exception {
+        int value = this.tail.value;
+        if(this.size <= 1){
+            return this.deleteFirst();
+        }
+
+        Node temp = this.head;
+        while(temp.next.next == null){
+            temp = temp.next;
+        }
+        this.tail = temp;
+        this.tail.next = null;
+        this.size--;
+        return value;
     }
 
     public void display(){
