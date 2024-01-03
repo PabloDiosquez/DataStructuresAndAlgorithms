@@ -10,6 +10,9 @@ public class SinglyLinkedList {
         list.insertFirst(-12);
 
         list.display();
+        list.insertLast(45);
+        list.insert(-1, 3);
+        list.display();
     }
     private Node head;
 
@@ -38,6 +41,27 @@ public class SinglyLinkedList {
         Node node = new Node(value);
         this.tail.next = node;
         this.tail      = node;
+        this.size++;
+    }
+
+    public void insert(int value, int index){
+        if(index == 0){
+            this.insertFirst(value);
+            return;
+        }
+
+        if(index == this.size){
+            this.insertLast(value);
+            return;
+        }
+
+        Node temp = head;
+        int j = 1;
+        while(j < index){
+            temp = temp.next;
+            j++;
+        }
+        temp.next = new Node(value, temp.next);
         this.size++;
     }
 
