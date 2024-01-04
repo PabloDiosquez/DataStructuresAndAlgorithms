@@ -13,7 +13,8 @@ public class DoubleLinkedList {
         System.out.println();
         // list.displayRev();
 
-        list.insertLast(100);
+        list.insertLast(-1);
+        list.insert(23, 3);
         list.display();
     }
 
@@ -53,6 +54,26 @@ public class DoubleLinkedList {
         if(this.head == null){
             this.head = node;
         }
+        this.size++;
+    }
+
+    public void insert(int value, int index){
+        if(index == 0){
+            this.insertFirst(value);
+        }
+
+        if(index == this.size - 1){
+            this.insertLast(value);
+        }
+
+        Node temp = this.head;
+        for (int i = 0; i < index-1; i++) {
+            temp = temp.next;
+        }
+        Node node = new Node(value, temp.next, temp);
+        temp.next.prev = node;
+        temp.next = node;
+
         this.size++;
     }
 
