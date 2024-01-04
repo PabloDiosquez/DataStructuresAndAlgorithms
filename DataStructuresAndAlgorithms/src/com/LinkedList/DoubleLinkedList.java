@@ -15,6 +15,8 @@ public class DoubleLinkedList {
 
         list.insertLast(-1);
         list.insert(23, 3);
+        list.insertAfter(2, 111);
+        list.insertAfter(-1, 123);
         list.display();
     }
 
@@ -77,6 +79,36 @@ public class DoubleLinkedList {
         temp.next = node;
 
         this.size++;
+    }
+
+    public void insertAfter(int afterValue, int value){
+        Node afterNode = this.find(afterValue);
+
+        if(afterNode == null){
+            System.out.println("Does not exist");
+            return;
+        }
+
+        Node node = new Node(value, afterNode.next, afterNode);
+        afterNode.next = node;
+
+        if(node.next != null){
+            node.next.prev = node;
+        }
+
+        this.size++;
+    }
+
+    public Node find(int value){
+        Node temp = this.head;
+
+        while(temp != null){
+            if(temp.value == value){
+                return temp;
+            }
+            temp = temp.next;
+        }
+        return null;
     }
 
     public void display(){
