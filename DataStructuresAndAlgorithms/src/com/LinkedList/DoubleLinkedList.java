@@ -60,10 +60,12 @@ public class DoubleLinkedList {
     public void insert(int value, int index){
         if(index == 0){
             this.insertFirst(value);
+            return;
         }
 
         if(index == this.size - 1){
             this.insertLast(value);
+            return;
         }
 
         Node temp = this.head;
