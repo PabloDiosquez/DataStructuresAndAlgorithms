@@ -4,8 +4,9 @@ import java.util.Arrays;
 
 public class RadixSort {
     public static void main(String[] args) {
-        int[] arr = new int[] {29, 83, 471, 36, 91, 8};
+        int[] arr = new int[] {291, 832, 47, 16, 11, 84};
         radixSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void radixSort(int[] arr){
@@ -20,19 +21,24 @@ public class RadixSort {
     private static void countSort(int[] arr, int exp) {
         int n = arr.length;
         int[] output = new int[n];
-        int[] count = new int[10]; // 10 digits: 0 -- 9
+        int[] count  = new int[10]; // 10 digits: 0 -- 9
+        int[] sums   = new int[10];
 
         // Arrays.fill(count, 0);
 
-        for (int i = 0; i < arr.length; i++) {
-            count[(arr[i] / exp) % 10]++;
+        for (int num : arr) {
+            count[(num / exp) % 10]++;
         }
 
-        for (int i = 1; i < 10; i++) {
-            count[i] = count[i] + count[i-1];
+        for (int i = 1; i <= 9; i++) {
+            sums[i] = sums[i-1] + count[i-1];
         }
 
+        for (int num : arr) {
+            output[sums[(num / exp) % 10]] = num;
+            sums[(num / exp) % 10]++;
+        }
 
-
+        System.arraycopy(output, 0, arr, 0, n);
     }
 }
