@@ -7,7 +7,8 @@ public class BT {
         Scanner sc = new Scanner(System.in);
         BT tree = new BT();
         tree.populate(sc);
-        tree.display();
+        // tree.display();
+        tree.prettyDisplay();
     }
 
     private Node root;
@@ -48,8 +49,31 @@ public class BT {
             return;
         }
         System.out.println(indent + node.value);
-        display(node.left, indent);
+        display(node.left, indent + "\t");
         display(node.right, indent + "\t");
+    }
+
+    public void prettyDisplay(){
+        prettyDisplay(this.root, 0);
+    }
+
+    private void prettyDisplay(Node node, int level) {
+        if(node == null){
+            return;
+        }
+
+        prettyDisplay(node.right, level+1);
+
+        if(level != 0){
+            for (int i = 0; i < level-1; i++) {
+                System.out.println("|\t\t");
+            }
+            System.out.println("|------> " + node.value);
+        } else {
+            System.out.println(node.value);
+        }
+
+        prettyDisplay(node.left, level+1);
     }
 
     private class Node{
