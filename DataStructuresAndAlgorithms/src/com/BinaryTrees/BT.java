@@ -1,11 +1,22 @@
 package com.BinaryTrees;
 
+import java.util.Scanner;
+
 public class BT {
     public static void main(String[] args) {
 
     }
 
-    
+    private Node root;
+
+    public BT(){
+
+    }
+
+    public void populate(Scanner scanner){
+        System.out.println("Enter the root node:");
+        this.root = new Node(scanner.nextInt());
+    }
     private class Node{
         private int value;
         private Node left;
