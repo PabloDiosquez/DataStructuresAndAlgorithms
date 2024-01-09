@@ -7,8 +7,11 @@ public class BST {
         tree.insert(10);
         tree.insert(20);
         tree.insert(5);
+        tree.insert(12);
+        tree.insert(8);
 
         tree.display();
+        System.out.println(tree.balanced());
     }
     private Node root;
     public BST(){
