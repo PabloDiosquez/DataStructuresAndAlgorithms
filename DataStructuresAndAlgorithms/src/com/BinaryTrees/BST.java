@@ -20,10 +20,7 @@ public class BST {
     }
 
     public void insert(int value){
-        if(this.isEmpty()){
-            this.root = new Node(value);
-        }
-
+        this.root = insert(value, this.root);
     }
 
     private Node insert(int value, Node node){
