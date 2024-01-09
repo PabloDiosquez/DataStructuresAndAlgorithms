@@ -2,7 +2,13 @@ package com.BinaryTrees;
 
 public class BST {
     public static void main(String[] args) {
+        BST tree = new BST();
+        tree.insert(15);
+        tree.insert(10);
+        tree.insert(20);
+        tree.insert(5);
 
+        tree.display();
     }
     private Node root;
     public BST(){
@@ -28,11 +34,11 @@ public class BST {
             return new Node(value);
         }
 
-        if(node.getValue() < value){
+        if(node.getValue() > value){
             node.left = insert(value, node.left);
         }
 
-        if(node.getValue() > value){
+        if(node.getValue() < value){
             node.right = insert(value, node.right);
         }
         node.height = 1 + Math.max(height(node.left), height(node.right));
@@ -40,7 +46,7 @@ public class BST {
     }
 
     public void display(){
-        display(this.root, "Root node: " + this.root.getValue());
+        display(this.root, "Root node: ");
     }
 
     private void display(Node node, String details) {
