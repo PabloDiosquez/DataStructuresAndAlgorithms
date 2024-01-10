@@ -3,19 +3,23 @@ package com.BinaryTrees;
 public class BST {
     public static void main(String[] args) {
         BST tree = new BST();
-        //tree.insert(15);
-        //tree.insert(10);
-        //tree.insert(20);
-        //tree.insert(5);
-        //tree.insert(12);
-        //tree.insert(8);
+        tree.insert(15);
+        tree.insert(10);
+        tree.insert(20);
+        tree.insert(5);
+        tree.insert(12);
+        tree.insert(8);
 
         //tree.display();
-        //System.out.println(tree.balanced());
+        System.out.println(tree.balanced());
+        //tree.preOrder();
+        //tree.inOrder();
+        tree.postOrder();
 
-        int[] nums = new int[] {1, 2, 4, 5, 7, 8, 9, 12, 14};
-        tree.populatedSorted(nums);
-        tree.display();
+
+        //int[] nums = new int[] {1, 2, 4, 5, 7, 8, 9, 12, 14};
+        //tree.populatedSorted(nums);
+        //tree.display();
     }
     private Node root;
     public BST(){
@@ -52,6 +56,7 @@ public class BST {
         return node;
     }
 
+    // O(n * log(n))
     public void populatedSorted(int[] nums){
         populatedSorted(nums, 0, nums.length);
     }
@@ -77,6 +82,43 @@ public class BST {
         return Math.abs(height(node.left) - height(node.right)) <= 1
                 && balanced(node.left) && balanced(node.right);
     }
+
+    public void preOrder(){
+        preOrder(this.root);
+    }
+
+    private void preOrder(Node node) {
+        if(node != null){
+            System.out.println(node);
+            preOrder(node.left);
+            preOrder(node.right);
+        }
+    }
+
+    public void inOrder(){
+        inOrder(this.root);
+    }
+
+    private void inOrder(Node node) {
+        if(node != null){
+            inOrder(node.left);
+            System.out.println(node);
+            inOrder(node.right);
+        }
+    }
+
+    public void postOrder(){
+        postOrder(this.root);
+    }
+
+    private void postOrder(Node node) {
+        if(node != null){
+            postOrder(node.left);
+            postOrder(node.right);
+            System.out.println(node);
+        }
+    }
+
 
     public void display(){
         display(this.root, "Root node: ");
