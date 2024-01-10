@@ -3,15 +3,19 @@ package com.BinaryTrees;
 public class BST {
     public static void main(String[] args) {
         BST tree = new BST();
-        tree.insert(15);
-        tree.insert(10);
-        tree.insert(20);
-        tree.insert(5);
-        tree.insert(12);
-        tree.insert(8);
+        //tree.insert(15);
+        //tree.insert(10);
+        //tree.insert(20);
+        //tree.insert(5);
+        //tree.insert(12);
+        //tree.insert(8);
 
+        //tree.display();
+        //System.out.println(tree.balanced());
+
+        int[] nums = new int[] {1, 2, 4, 5, 7, 8, 9, 12, 14};
+        tree.populatedSorted(nums);
         tree.display();
-        System.out.println(tree.balanced());
     }
     private Node root;
     public BST(){
@@ -46,6 +50,20 @@ public class BST {
         }
         node.height = 1 + Math.max(height(node.left), height(node.right));
         return node;
+    }
+
+    public void populatedSorted(int[] nums){
+        populatedSorted(nums, 0, nums.length);
+    }
+    private void populatedSorted(int[] nums, int start, int end){
+        if(start >= end){
+            return;
+        }
+        int middle = (start + end) / 2;
+
+        this.insert(nums[middle]);
+        populatedSorted(nums, start, middle);
+        populatedSorted(nums, middle+1, end);
     }
 
     public boolean balanced(){
