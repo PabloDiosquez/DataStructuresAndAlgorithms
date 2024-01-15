@@ -33,4 +33,26 @@ public class BS_2D {
         }
         return ans;
     }
+
+    static int[] binSearch(int[][] sortedArr, int target){
+        int[] ans = new int[] {-1, -1};
+
+        int lowBound = 0;
+        int upperBound = sortedArr.length-1;
+
+        while(lowBound <= upperBound){
+            if(sortedArr[lowBound][upperBound] == target){
+                ans[0] = lowBound;
+                ans[1] = upperBound;
+                return ans;
+            }
+
+            if(sortedArr[lowBound][upperBound] < target){
+                lowBound++;
+            } else {
+                upperBound--;
+            }
+        }
+        return ans;
+    }
 }
