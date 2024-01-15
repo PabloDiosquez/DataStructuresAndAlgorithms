@@ -30,7 +30,7 @@ public class BS_2D {
         return new int[]{-1, -1};
     }
 
-    static int[] binSearch(int[][] sortedArr, int target){
+    static int[] search(int[][] sortedArr, int target){
         int lb = 0;
         int ub = sortedArr.length-1;
 
@@ -42,6 +42,27 @@ public class BS_2D {
                 lb++;
             } else {
                 ub--;
+            }
+        }
+        return new int[]{-1, -1};
+    }
+
+    static int[] binSearch(int[][] sortedArr, int target){
+        return null;
+    }
+
+    private static int[] binarySearch(int[] arr, int row, int colStart, int colEnd, int target){
+        while(colStart <= colEnd){
+            int middle = (colStart + colEnd) / 2;
+
+            if(arr[middle] == target){
+                return new int[] {row, middle};
+            }
+
+            if(arr[middle] < target){
+                colStart = middle+1;
+            } else {
+                colEnd = middle-1;
             }
         }
         return new int[]{-1, -1};
