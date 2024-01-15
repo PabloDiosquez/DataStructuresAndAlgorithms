@@ -20,39 +20,30 @@ public class BS_2D {
     }
 
     static int[] linearSearch(int[][] arr, int target){
-        int[] ans = new int[]{-1, -1};
-
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if(arr[i][j] == target){
-                    ans[0] = i;
-                    ans[1] = j;
-                    return ans;
+        for (int r = 0; r < arr.length; r++) {
+            for (int c = 0; c < arr[r].length; c++) {
+                if(arr[r][c] == target){
+                    return new int[] {r, c};
                 }
             }
         }
-        return ans;
+        return new int[]{-1, -1};
     }
 
     static int[] binSearch(int[][] sortedArr, int target){
-        int[] ans = new int[] {-1, -1};
+        int lb = 0;
+        int ub = sortedArr.length-1;
 
-        int lowBound = 0;
-        int upperBound = sortedArr.length-1;
-
-        while(lowBound <= upperBound){
-            if(sortedArr[lowBound][upperBound] == target){
-                ans[0] = lowBound;
-                ans[1] = upperBound;
-                return ans;
+        while(lb < sortedArr.length && ub >= 0){
+            if(sortedArr[lb][ub] == target){
+                return new int[]{lb, ub};
             }
-
-            if(sortedArr[lowBound][upperBound] < target){
-                lowBound++;
+            if(sortedArr[lb][ub] < target){
+                lb++;
             } else {
-                upperBound--;
+                ub--;
             }
         }
-        return ans;
+        return new int[]{-1, -1};
     }
 }
