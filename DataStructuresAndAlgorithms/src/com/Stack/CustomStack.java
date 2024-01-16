@@ -83,6 +83,16 @@ public class CustomStack {
     }
 
     /**
+     * Checks if the CustomStack is full, i.e., if the number of elements in the stack
+     * is equal to the maximum capacity specified during instantiation.
+     *
+     * @return {@code true} if the stack is full, {@code false} otherwise.
+     */
+    public boolean isFull() {
+        return this.pointer == this.data.length - 1;
+    }
+
+    /**
      * Checks if the stack is not full.
      *
      * @return True if the stack is not full, false otherwise.
