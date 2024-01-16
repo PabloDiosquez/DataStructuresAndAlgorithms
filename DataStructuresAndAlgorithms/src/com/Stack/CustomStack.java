@@ -96,7 +96,7 @@ public class CustomStack {
      *
      * @return True if the stack is empty, false otherwise.
      */
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return this.pointer == -1;
     }
 }
