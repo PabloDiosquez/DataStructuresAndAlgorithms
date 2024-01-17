@@ -96,7 +96,7 @@ public class CustomQueue {
             return;
         }
         for (int i = 0; i < end; i++) {
-            System.out.print(this.data[i] + " ");
+            System.out.print(this.data[i] + " <- ");
         }
         System.out.print("END");
     }
