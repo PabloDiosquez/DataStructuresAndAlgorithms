@@ -8,17 +8,17 @@ package com.Queue;
 public class CircularQueue {
 
     // The array to store queue elements.
-    private int[] data;
+    protected int[] data;
 
     // The default size of the queue when no size is specified.
-    private static final int DEFAULT_SIZE = 10;
+    protected static final int DEFAULT_SIZE = 10;
 
     // Pointers to the front and end of the queue.
-    private int front;
-    private int end;
+    protected int front;
+    protected int end;
 
     // The current size of the queue.
-    private int size;
+    protected int size;
 
     /**
      * Constructs a new CircularQueue with the default size.
