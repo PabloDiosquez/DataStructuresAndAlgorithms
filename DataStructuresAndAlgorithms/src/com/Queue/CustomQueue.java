@@ -35,6 +35,24 @@ public class CustomQueue {
         return removed;
     }
 
+    public int front() throws Exception{
+        if(this.isEmpty()){
+            throw new Exception("Queue is empty!");
+        }
+        return this.data[0];
+    }
+
+    public void display(){
+        if(this.isEmpty()){
+            System.out.println("Queue is empty!");
+            return;
+        }
+        for (int i = 0; i < end; i++) {
+            System.out.print(this.data[i] + " ");
+        }
+        System.out.print("END");
+    }
+
     public boolean isFull(){
         return this.end == this.data.length;
     }
