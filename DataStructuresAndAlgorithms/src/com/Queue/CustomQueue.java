@@ -10,14 +10,36 @@ public class CustomQueue {
     }
     public CustomQueue(int size){
         this.data = new int[size];
-        this.end = -1;
+        this.end = 0;
+    }
+
+    public boolean insert(int item){
+        if(isFull()){
+            return false;
+        }
+        this.data[end++] = item;
+        return true;
+    }
+
+    // Complexity: O(N)
+    public int remove() throws Exception{
+        if(this.isEmpty()){
+            throw new Exception("Queue is empty!");
+        }
+        int removed = this.data[0];
+        // shift the elements to left.
+        for (int i = 1; i < end; i++) {
+            this.data[i-1] = this.data[i];
+        }
+        this.end--;
+        return removed;
     }
 
     public boolean isFull(){
-        return this.end == this.data.length - 1;
+        return this.end == this.data.length;
     }
 
     public boolean isEmpty(){
-        return this.end == -1;
+        return this.end == 0;
     }
 }
