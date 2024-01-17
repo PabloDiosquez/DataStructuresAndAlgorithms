@@ -29,14 +29,21 @@ public class CircularQueue {
         return true;
     }
 
-    public boolean remove(){
+    public int remove() throws Exception{
         if(this.isEmpty()){
-            return false;
+            throw new Exception("Queue is empty!");
         }
         int removed = this.data[front++];
         front = front % this.data.length;
         this.size--;
-        return true;
+        return removed;
+    }
+
+    public int front() throws Exception{
+        if(this.isEmpty()){
+            throw new Exception("Queue is empty!");
+        }
+        return this.data[front];
     }
 
     public void display(){
