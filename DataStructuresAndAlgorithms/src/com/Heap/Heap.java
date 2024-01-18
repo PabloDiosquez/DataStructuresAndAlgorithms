@@ -41,4 +41,40 @@ public class Heap<T extends Comparable<T>> {
             unheap(p);
         }
     }
+
+    public T remove() throws Exception{
+        if(this.list.isEmpty()){
+            throw new Exception("Removing from an empty heap!");
+        }
+
+        T removed = this.list.get(0);
+
+        T last = this.list.get(this.list.size()-1);
+        if(!this.list.isEmpty()){
+            this.list.set(0, last);
+            this.downheap(0);
+        }
+        return removed;
+    }
+
+    private void downheap(int index) {
+        int min = index;
+        int left = this.left(index);
+        int right = this.right(index);
+
+        if(left < this.list.size() &&
+                this.list.get(min).compareTo(this.list.get(left)) > 0){
+            min = left;
+        }
+
+        if(right < this.list.size() &&
+                this.list.get(min).compareTo(this.list.get(right)) > 0){
+            min = right;
+        }
+
+        if(min != index){
+            swap(min, index);
+            downheap(min);
+        }
+    }
 }
