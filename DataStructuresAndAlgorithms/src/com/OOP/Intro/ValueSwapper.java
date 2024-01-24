@@ -6,8 +6,8 @@ package com.OOP.Intro;
 public class ValueSwapper {
 
     public static void main(String[] args) {
-        final A obj1 = new A(10);
-        final B obj2 = new B(12);
+        final A obj1 = new A(82);
+        final B obj2 = new B(91);
 
         // obj1 = new A(16); // Error!! Final variable cannot be reassigned.
 
