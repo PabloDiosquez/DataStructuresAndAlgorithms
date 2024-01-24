@@ -1,5 +1,7 @@
 package com.POO.Intro;
 
+import java.util.Arrays;
+
 /**
  * The Main class represents the main entry point of the program.
  */
@@ -23,25 +25,41 @@ public class Main {
 
         // Array to store information about 5 students {roll number, name, marks}
         Student[] students = new Student[5];
+
+        // Compile time  -- Runtime
+        Student student1 =  new Student();
+
+        System.out.println(student1.rno);
+        System.out.println(student1.name);
+        System.out.println(student1.marks);
+
+        student1.rno   = 10;
+        student1.name  = "Harry Potter";
+        student1.marks = 7.1;
+
+        System.out.println("\n"+student1.rno);
+        System.out.println(student1.name);
+        System.out.println(student1.marks);
     }
+
+}
+
+/**
+ * The Student class represents a student with attributes such as roll number, name, and marks.
+ */
+class Student {
+    /**
+     * The roll number of the student.
+     */
+    int rno = 1;
 
     /**
-     * The Student class represents a student with attributes such as roll number, name, and marks.
+     * The name of the student.
      */
-    class Student {
-        /**
-         * The roll number of the student.
-         */
-        int rno;
+    String name;
 
-        /**
-         * The name of the student.
-         */
-        String name;
-
-        /**
-         * The marks obtained by the student.
-         */
-        double marks;
-    }
+    /**
+     * The marks obtained by the student.
+     */
+    double marks;
 }
