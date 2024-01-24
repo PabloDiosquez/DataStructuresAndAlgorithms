@@ -34,12 +34,19 @@ public class Main {
         System.out.println(student1.marks);
 
         student1.rno   = 10;
-        student1.name  = "Harry Potter";
+        student1.name  = "Rahul";
         student1.marks = 7.1;
 
         System.out.println("\n"+student1.rno);
         System.out.println(student1.name);
         System.out.println(student1.marks);
+
+        Student student2 = new Student(11, "Kunal", 9.5);
+
+        System.out.println("\n"+student2.rno);
+        System.out.println(student2.name);
+        System.out.println(student2.marks);
+
     }
 
 }
@@ -51,7 +58,7 @@ class Student {
     /**
      * The roll number of the student.
      */
-    int rno = 1;
+    int rno = -1;
 
     /**
      * The name of the student.
@@ -62,4 +69,13 @@ class Student {
      * The marks obtained by the student.
      */
     double marks;
+
+    Student(){
+
+    }
+    Student(int rno, String name, double marks){
+        this.rno   = rno;
+        this.name  = name;
+        this.marks = marks;
+    }
 }
