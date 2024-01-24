@@ -1,7 +1,5 @@
 package com.POO.Intro;
 
-import java.util.Arrays;
-
 /**
  * The Main class represents the main entry point of the program.
  */
@@ -40,12 +38,20 @@ public class Main {
         System.out.println("\n"+student1.rno);
         System.out.println(student1.name);
         System.out.println(student1.marks);
+        student1.greeting();
 
         Student student2 = new Student(11, "Kunal", 9.5);
 
         System.out.println("\n"+student2.rno);
         System.out.println(student2.name);
         System.out.println(student2.marks);
+        student2.greeting();
+
+        student2.changeName("Civo");
+        student2.greeting();
+
+        Student student3 = new Student(student1);
+        student3.greeting();
 
     }
 
@@ -58,7 +64,7 @@ class Student {
     /**
      * The roll number of the student.
      */
-    int rno = -1;
+    int rno;
 
     /**
      * The name of the student.
@@ -71,11 +77,23 @@ class Student {
     double marks;
 
     Student(){
-
+        this.rno = -1;
     }
     Student(int rno, String name, double marks){
         this.rno   = rno;
         this.name  = name;
         this.marks = marks;
+    }
+
+    Student(Student student){
+        this(student.rno, student.name, student.marks);
+    }
+
+    void greeting(){
+        System.out.println("Hello! My name is " + this.name);
+    }
+
+    void changeName(String name){
+        this.name = name;
     }
 }
