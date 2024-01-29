@@ -84,7 +84,7 @@ public class BS_2D {
         if(target <= matrix[rStart][cMid]){
             return binarySearch(matrix, rStart, 0, cMid-1, target);
         }
-
+        return new int[]{-1, -1};
     }
 
     private static int[] binarySearch(int[][] arr, int row, int colStart, int colEnd, int target){
