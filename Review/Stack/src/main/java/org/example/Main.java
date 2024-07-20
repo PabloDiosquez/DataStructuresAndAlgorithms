@@ -5,14 +5,14 @@ package org.example;
 public class Main {
     public static void main(String[] args) throws Exception {
         Stack s = new Stack();
-        s.enqueue(12);
-        s.enqueue(2);
-        s.enqueue(100);
-        s.enqueue(90);
+        s.push(12);
+        s.push(2);
+        s.push(100);
+        s.push(90);
         System.out.println(s.peek());
-        s.dequeue();
-        s.dequeue();
+        s.pop();
+        s.pop();
         System.out.println(s.peek());
-        s.dequeue();
+        s.pop();
     }
 }

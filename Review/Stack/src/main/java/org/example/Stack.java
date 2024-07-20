@@ -5,25 +5,21 @@ import java.util.List;
 
 public class Stack {
     private List<Integer> stack;
-    private int size;
 
     public Stack(){
         stack = new ArrayList<>();
-        size = 0;
     }
 
-    public void enqueue(int data){
+    public void push(int data){
         stack.add(data);
-        size++;
     }
 
-    public int dequeue() throws Exception {
+    public int pop() throws Exception {
         if(this.isEmpty()){
             throw new Exception("The stack is empty");
         }
         int data = stack.getLast();
-        stack.remove(size-1);
-        size--;
+        stack.remove(stack.size()-1);
         return data;
     }
 
@@ -31,9 +27,9 @@ public class Stack {
         if(this.isEmpty()){
             throw new Exception("The stack is empty");
         }
-        return stack.get(size-1);
+        return stack.get(stack.size()-1);
     }
     public boolean isEmpty(){
-        return size == 0;
+        return stack.isEmpty();
     }
 }
