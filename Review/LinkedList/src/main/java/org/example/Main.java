@@ -9,7 +9,7 @@ public class Main {
         list.show();
         System.out.println();
         //list.deleteAt(2);
-        list.deleteAtEnd();
-        list.show();
+        //list.deleteAtEnd();
+        list.show(1);
     }
 }

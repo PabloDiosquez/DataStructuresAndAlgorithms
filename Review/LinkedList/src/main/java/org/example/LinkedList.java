@@ -2,10 +2,14 @@ package org.example;
 
 public class LinkedList {
     private Node head;
+    private int size;
+
+    public LinkedList() {
+        size = 0;
+    }
 
     public void insert(int data){
         Node node = new Node(data, null);
-
         if(head == null){
             head = node;
         } else {
@@ -15,11 +19,17 @@ public class LinkedList {
             }
             current.setNext(node);
         }
+        size++;
     }
 
     public void insertAt(int data, int index){
+        if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index out of the bounds");
+        }
+        
         if(index == 0){
             insertAtStart(data);
+            return;
         } else {
             Node node = new Node(data, null);
             int count = 0;
@@ -31,10 +41,12 @@ public class LinkedList {
             node.setNext(current.getNext());
             current.setNext(node);
         }
+        size++;
     }
 
     public void insertAtStart(int data){
         head = new Node(data, head);
+        size++;
     }
 
     public int deleteAtStart() throws Exception{
@@ -43,6 +55,7 @@ public class LinkedList {
         }
         int data = head.getData();
         head = head.getNext();
+        size--;
         return data;
     }
 
@@ -50,18 +63,16 @@ public class LinkedList {
         if(head == null){
             throw new Exception("The list cannot be empty.");
         }
-        int count = 0;
-        Node current = head;
-        while(current.getNext() != null){
-            current = current.getNext();
-            count++;
-        }
-        return deleteAt(count);
+        return deleteAt(size-1);
     }
 
     public int deleteAt(int index) throws Exception {
         if(head == null){
             throw new Exception("The list cannot be empty.");
+        }
+
+        if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index out of the bounds");
         }
 
         if(index == 0){
@@ -76,7 +87,26 @@ public class LinkedList {
         }
         Node deleted = current.getNext();
         current.setNext(deleted.getNext());
+        size--;
         return deleted.getData();
+    }
+
+    public void show(int index) throws Exception{
+        if(head == null){
+            throw new Exception("The list cannot be empty");
+        }
+
+        if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index out of the bounds");
+        }
+
+        int count = 0;
+        Node current = head;
+        while(count < index){
+            current = current.getNext();
+            count++;
+        }
+        System.out.println(current);
     }
 
     public void show(){
