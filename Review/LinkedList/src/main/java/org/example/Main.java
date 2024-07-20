@@ -1,15 +1,15 @@
 package org.example;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         LinkedList list = new LinkedList();
         list.insert(12);
-        list.insert(1);
         list.insert(21);
-        //list.insertAtStart(14);
+        list.insert(133);
         list.show();
-        list.insertAt(100, 3);
         System.out.println();
+        //list.deleteAt(2);
+        list.deleteAtEnd();
         list.show();
     }
 }

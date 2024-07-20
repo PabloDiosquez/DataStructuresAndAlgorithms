@@ -37,6 +37,48 @@ public class LinkedList {
         head = new Node(data, head);
     }
 
+    public int deleteAtStart() throws Exception{
+        if(head == null){
+            throw new Exception("The list cannot be empty.");
+        }
+        int data = head.getData();
+        head = head.getNext();
+        return data;
+    }
+
+    public int deleteAtEnd() throws Exception {
+        if(head == null){
+            throw new Exception("The list cannot be empty.");
+        }
+        int count = 0;
+        Node current = head;
+        while(current.getNext() != null){
+            current = current.getNext();
+            count++;
+        }
+        return deleteAt(count);
+    }
+
+    public int deleteAt(int index) throws Exception {
+        if(head == null){
+            throw new Exception("The list cannot be empty.");
+        }
+
+        if(index == 0){
+            return deleteAtStart();
+        }
+
+        int count = 0;
+        Node current = head;
+        while(count < index-1){
+            current = current.getNext();
+            count++;
+        }
+        Node deleted = current.getNext();
+        current.setNext(deleted.getNext());
+        return deleted.getData();
+    }
+
     public void show(){
         if(head == null){
             System.out.println("The list is empty :(");
