@@ -23,13 +23,35 @@ public class CustomStack {
             System.out.println("Stack is full");
             return false;
         }
-        pointer++;
-        data[pointer] = item;
+        //pointer++;
+        //data[pointer] = item;
+        data[++pointer] = item;
         return true;
     }
 
+    public int pop() throws Exception {
+        if(isEmpty()){
+            throw new Exception("Cannot pop from an empty stack");
+        }
+        //int removed = data[pointer];
+        //pointer--;
+        //return removed;
+        return data[pointer--];
+    }
+
+    public int peek() throws Exception {
+        if(isEmpty()){
+            throw new Exception("Cannot peek from an empty stack");
+        }
+        return data[pointer];
+    }
+
     private boolean isFull() {
-        return pointer == data.length;
+        return pointer == data.length-1;
+    }
+
+    public boolean isEmpty(){
+        return pointer == -1;
     }
 
 }
