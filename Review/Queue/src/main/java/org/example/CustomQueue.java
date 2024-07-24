@@ -90,11 +90,12 @@ public class CustomQueue {
     }
 
     /**
-     * Exception class for handling queue-specific errors.
+     * Displays the contents of the queue.
      */
-    public static class QueueException extends Exception {
-        public QueueException(String message) {
-            super(message);
+    public void display(){
+        for (int i = 0; i < end; i++) {
+            System.out.print(data[i] + " - ");
         }
+        System.out.println("END");
     }
 }
