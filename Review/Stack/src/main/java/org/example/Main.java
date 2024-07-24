@@ -5,12 +5,15 @@ package org.example;
 public class Main {
     public static void main(String[] args) throws Exception {
         CustomStack stack = new CustomStack(5);
+        //DynamicStack stack = new DynamicStack();
 
         stack.push(12);
         stack.push(1);
-        stack.push(21);
-        stack.push(22);
-        stack.push(34);
+        stack.push(1);
+        stack.push(1);
+        stack.push(1);
+        stack.push(1);
+        stack.push(1);
 
         System.out.println(stack.pop());
         System.out.println(stack.pop());
