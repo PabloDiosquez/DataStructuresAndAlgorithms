@@ -4,14 +4,19 @@ import java.util.Scanner;
 
 public class BinaryTree {
     private static class Node{
-        private int value;
+        private final int value;
         private Node left;
         private Node right;
-        public Node(int data) {
-            this.value = data;
+        public Node(int value) {
+            this.value = value;
         }
         public Node(Node old) {
             this(old.value);
+        }
+
+        @Override
+        public String toString() {
+            return String.format("%s", value);
         }
     }
 
