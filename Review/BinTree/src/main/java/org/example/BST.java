@@ -3,7 +3,6 @@ package org.example;
 public class BST {
     private class Node{
         private final int value;
-
         private Node left;
         private Node right;
         private int height;
@@ -33,9 +32,7 @@ public class BST {
         if(node == null){
             return -1;
         }
-        int leftHeight = height(node.left);
-        int rightHeight = height(node.right);
-        return 1 + Math.max(leftHeight, rightHeight);
+        return node.height;
     }
 
     public boolean isEmpty(){
@@ -44,7 +41,6 @@ public class BST {
 
     public void insert(int value){
         root = insert(value, root);
-
     }
 
     private Node insert(int value, Node node) {
@@ -56,9 +52,21 @@ public class BST {
         } else if(value > node.getValue()){
             node.right = insert(value, node.right);
         }
+        node.height = 1 + Math.max(height(node.left), height(node.right));
         return node;
     }
 
+    public boolean isBalanced(){
+        return isBalanced(root);
+    }
+
+    private boolean isBalanced(Node node) {
+        if(node == null){
+            return true;
+        }
+        return Math.abs(height(node.left) - height(node.right)) <= 1
+                && isBalanced(node.left) && isBalanced(node.right);
+    }
 
     public void display(){
         display(root, "Root node: ");
