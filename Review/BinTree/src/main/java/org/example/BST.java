@@ -62,6 +62,20 @@ public class BST {
         }
     }
 
+    public void populatedSorted(int[] sortedArr){
+        populatedSorted(sortedArr, 0, sortedArr.length);
+    }
+
+    private void populatedSorted(int[] sortedArr, int start, int end) {
+        if(start >= end){
+            return;
+        }
+        int middle = start + (end - start) / 2;
+        this.insert(sortedArr[middle]);
+        populatedSorted(sortedArr, start, middle);
+        populatedSorted(sortedArr, middle+1, end);
+    }
+
     public boolean isBalanced(){
         return isBalanced(root);
     }
