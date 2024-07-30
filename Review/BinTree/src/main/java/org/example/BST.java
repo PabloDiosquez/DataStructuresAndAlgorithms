@@ -56,6 +56,12 @@ public class BST {
         return node;
     }
 
+    public void populate(int[] values){
+        for (int value : values) {
+            this.insert(value);
+        }
+    }
+
     public boolean isBalanced(){
         return isBalanced(root);
     }
