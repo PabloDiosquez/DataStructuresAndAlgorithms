@@ -66,6 +66,7 @@ public class BST {
         populatedSorted(sortedArr, 0, sortedArr.length);
     }
 
+    // O(N log(N))
     private void populatedSorted(int[] sortedArr, int start, int end) {
         if(start >= end){
             return;
@@ -99,6 +100,44 @@ public class BST {
         System.out.println(details + node.getValue());
         display(node.left, "Left child of " + node.getValue() + ": ");
         display(node.right, "Right child of " + node.getValue() + ": ");
+    }
+
+    public void preOrder(){
+        preOrder(root);
+    }
+
+    public void inOrder(){
+        inOrder(root);
+    }
+
+    public void postOrder(){
+        postOrder(root);
+    }
+
+    private void preOrder(Node node){
+        if(node == null){
+            return;
+        }
+        System.out.println(node.getValue() + " ");
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+    private void inOrder(Node node){
+        if(node == null){
+            return;
+        }
+        preOrder(node.left);
+        System.out.println(node.getValue() + " ");
+        preOrder(node.right);
+    }
+
+    private void postOrder(Node node){
+        if(node == null){
+            return;
+        }
+        preOrder(node.left);
+        preOrder(node.right);
+        System.out.println(node.getValue() + " ");
     }
 
 }
