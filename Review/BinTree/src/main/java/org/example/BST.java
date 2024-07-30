@@ -7,11 +7,11 @@ public class BST {
     /**
      * A nested class representing a node in the BST.
      */
-    private class Node {
-        private final int value;
-        private Node left;
-        private Node right;
-        private int height;
+    protected class Node {
+        protected final int value;
+        protected Node left;
+        protected Node right;
+        protected int height;
 
         /**
          * Constructs a new Node with the given value.
@@ -42,7 +42,7 @@ public class BST {
         }
     }
 
-    private Node root;
+    protected Node root;
 
     /**
      * Returns the height of the BST.
@@ -59,7 +59,7 @@ public class BST {
      * @param node the node whose height is to be calculated
      * @return the height of the given node, or -1 if the node is null
      */
-    private int height(Node node) {
+    protected int height(Node node) {
         if (node == null) {
             return -1;
         }
@@ -91,7 +91,7 @@ public class BST {
      * @param node  the current node
      * @return the updated node
      */
-    private Node insert(int value, Node node) {
+    protected Node insert(int value, Node node) {
         if (node == null) {
             return new Node(value);
         }
