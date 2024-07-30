@@ -36,11 +36,25 @@ public class AVL extends BST{
         return node;
     }
 
-    private Node leftRotate(Node left) {
-        return null;
+    private Node leftRotate(Node c) {
+        Node p = c.right;
+        Node t = p.left;
+
+        p.left = c;
+        c.right = t;
+        c.height = Math.max(height(c.left), height(c.right) + 1);
+        p.height = Math.max(height(p.left), height(p.right) + 1);
+        return p;
     }
 
-    private Node rightRotate(Node node) {
-        return null;
+    private Node rightRotate(Node p) {
+        Node c = p.left;
+        Node t = c.right;
+
+        c.right = p;
+        p.left = t;
+        p.height = Math.max(height(p.left), height(p.right) + 1);
+        c.height = Math.max(height(c.left), height(c.right) + 1);
+        return c;
     }
 }
