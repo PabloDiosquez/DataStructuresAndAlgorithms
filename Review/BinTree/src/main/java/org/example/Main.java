@@ -14,8 +14,15 @@ public class Main {
         bst.populate(values);
 
         // Display the BST
-        System.out.println("Binary Search Tree (BST) in order:");
-        bst.display();
+        //System.out.println("Binary Search Tree (BST) in order:");
+        //bst.display();
+
+        AVL avl = new AVL();
+
+        for (int i = 0; i < 1000; i++) {
+            avl.insert(i);
+        }
+        System.out.println("height = " + avl.height());
 
         // Close the scanner
         scanner.close();
