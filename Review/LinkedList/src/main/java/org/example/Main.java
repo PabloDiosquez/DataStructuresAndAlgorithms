@@ -45,6 +45,7 @@ public class Main {
             list.insert(101, 5);
 
             System.out.println();
+            list.display();
             list.deleteLast();
             list.display();
             System.out.println();

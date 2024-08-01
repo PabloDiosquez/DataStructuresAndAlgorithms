@@ -82,11 +82,12 @@ public class CustomLinkedList {
         }
         int deleted = head.value;
         head = head.next;
-        size--;
         if(head == null) tail = null;
+        size--;
         return deleted;
     }
 
+    /*
     public int deleteLast() throws Exception{
         if(head == null){
             throw new Exception("Cannot delete from an empty list");
@@ -104,6 +105,30 @@ public class CustomLinkedList {
         }
         size--;
         return deleted;
+    }
+    */
+
+    public int deleteLast() throws Exception {
+        if (head == null) {
+            throw new Exception("Cannot delete from an empty list");
+        }
+        if (size == 1) {
+            return deleteFirst();
+        }
+        int deleted = tail.value;
+        Node node = getNode(size - 2);
+        tail = node;
+        tail.next = null;
+        size--;
+        return deleted;
+    }
+
+    private Node getNode(int index) {
+        Node temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
     }
 
 
