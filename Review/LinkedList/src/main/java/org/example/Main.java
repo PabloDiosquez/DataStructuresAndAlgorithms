@@ -3,6 +3,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         try {
+            /*
             // Create a new linked list
             LinkedList list = new LinkedList();
 
@@ -30,6 +31,19 @@ public class Main {
             System.out.println();
             System.out.println("Node at index 1:");
             list.show(1);
+            */
+
+            CustomLinkedList list = new CustomLinkedList();
+
+            list.insertFirst(12);
+            list.insertFirst(3);
+            list.insertFirst(54);
+            list.insertFirst(67);
+            list.insertFirst(9);
+            list.insertFirst(2);
+
+            list.display();
+
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         }

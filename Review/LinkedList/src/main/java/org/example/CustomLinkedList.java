@@ -25,5 +25,30 @@ public class CustomLinkedList {
     private int size;
 
     public CustomLinkedList() {
+        size = 0;
+    }
+
+    public void insertFirst(int value){
+        Node node = new Node(value);
+        node.next = head;
+        head = node;
+
+        if(tail == null){
+            tail = head;
+        }
+        size++;
+    }
+
+    public void display(){
+        if(head == null){
+            System.out.println("The list is empty");
+        } else {
+            Node temp = head;
+            while(temp != null){
+                System.out.print(temp.value + " - ");
+                temp = temp.next;
+            }
+            System.out.print("END");
+        }
     }
 }
