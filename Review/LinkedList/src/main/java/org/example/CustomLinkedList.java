@@ -28,6 +28,7 @@ public class CustomLinkedList {
         size = 0;
     }
 
+    // O(1)
     public void insertFirst(int value){
         Node node = new Node(value);
         node.next = head;
@@ -38,6 +39,43 @@ public class CustomLinkedList {
         }
         size++;
     }
+
+    // O(1)
+    public void insertLast(int value){
+        if(tail == null){
+            insertFirst(value);
+            return;
+        }
+        Node node = new Node(value);
+        tail.next = node;
+        tail = node;
+        size++;
+    }
+
+    public void insert(int value, int index) throws Exception {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+
+        if (index == 0) {
+            insertFirst(value);
+            return;
+        }
+
+        if (index == size) {
+            insertLast(value);
+            return;
+        }
+
+        Node temp = head;
+        for (int i = 1; i < index; i++) {
+            temp = temp.next;
+        }
+        Node node = new Node(value, temp.next);
+        temp.next = node;
+        size++;
+    }
+
 
     public void display() {
         Node temp = head;

@@ -41,6 +41,8 @@ public class Main {
             list.insertFirst(67);
             list.insertFirst(9);
             list.insertFirst(2);
+            list.insertLast(1900);
+            list.insert(101, 5);
 
             list.display();
 
