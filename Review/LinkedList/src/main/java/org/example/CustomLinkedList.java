@@ -2,7 +2,7 @@ package org.example;
 
 public class CustomLinkedList {
 
-    private class Node{
+    public class Node{
         private int value;
         private Node next;
         public Node(int value) {
@@ -122,6 +122,7 @@ public class CustomLinkedList {
         return deleted;
     }
 
+    // O(N)
     public int delete(int index) throws Exception {
         if (head == null) {
             throw new Exception("Cannot delete from an empty list");
@@ -152,6 +153,18 @@ public class CustomLinkedList {
             temp = temp.next;
         }
         return temp;
+    }
+
+    // O(N)
+    public Node find(int value){
+        Node temp = head;
+        while(temp != null){
+            if(temp.value == value){
+                return temp;
+            }
+            temp = temp.next;
+        }
+        return null;
     }
 
     public void display() {
