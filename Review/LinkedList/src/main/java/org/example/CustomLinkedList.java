@@ -76,6 +76,37 @@ public class CustomLinkedList {
         size++;
     }
 
+    public int deleteFirst() throws Exception{
+        if(head == null){
+            throw new Exception("Cannot delete from an empty list");
+        }
+        int deleted = head.value;
+        head = head.next;
+        size--;
+        if(head == null) tail = null;
+        return deleted;
+    }
+
+    public int deleteLast() throws Exception{
+        if(head == null){
+            throw new Exception("Cannot delete from an empty list");
+        }
+
+        int deleted = tail.value;
+        if(size == 1){
+            head = null; tail = null;
+        } else {
+            Node temp = head;
+            for (int i = 1; i < size; i++) {
+                temp = temp.next;
+            }
+            temp.next = null;
+            tail = temp;
+            size--;
+        }
+        return deleted;
+    }
+
 
     public void display() {
         Node temp = head;

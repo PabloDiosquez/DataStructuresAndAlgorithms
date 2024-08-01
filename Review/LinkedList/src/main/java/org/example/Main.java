@@ -44,6 +44,11 @@ public class Main {
             list.insertLast(1900);
             list.insert(101, 5);
 
+            System.out.println();
+            list.deleteLast();
+            list.display();
+            System.out.println();
+            list.deleteLast();
             list.display();
 
         } catch (Exception e) {
