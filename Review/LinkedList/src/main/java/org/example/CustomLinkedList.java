@@ -91,19 +91,18 @@ public class CustomLinkedList {
         if(head == null){
             throw new Exception("Cannot delete from an empty list");
         }
-
         int deleted = tail.value;
         if(size == 1){
             head = null; tail = null;
         } else {
             Node temp = head;
-            for (int i = 1; i < size; i++) {
+            while(temp.next != tail){
                 temp = temp.next;
             }
             temp.next = null;
             tail = temp;
-            size--;
         }
+        size--;
         return deleted;
     }
 
