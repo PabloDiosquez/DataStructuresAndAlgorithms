@@ -39,16 +39,18 @@ public class CustomLinkedList {
         size++;
     }
 
-    public void display(){
-        if(head == null){
-            System.out.println("The list is empty");
-        } else {
-            Node temp = head;
-            while(temp != null){
-                System.out.print(temp.value + " - ");
-                temp = temp.next;
-            }
-            System.out.print("END");
+    public void display() {
+        Node temp = head;
+        System.out.println((temp == null) ? "The list is empty" : getDisplayString(temp));
+    }
+
+    private String getDisplayString(Node node) {
+        StringBuilder sb = new StringBuilder();
+        while (node != null) {
+            sb.append(node.value).append(" -> ");
+            node = node.next;
         }
+        sb.append("END");
+        return sb.toString();
     }
 }
