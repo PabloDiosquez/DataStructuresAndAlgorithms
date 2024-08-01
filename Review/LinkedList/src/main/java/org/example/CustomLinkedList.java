@@ -116,9 +116,32 @@ public class CustomLinkedList {
             return deleteFirst();
         }
         int deleted = tail.value;
-        Node node = getNode(size - 2);
-        tail = node;
+        tail = getNode(size - 2);
         tail.next = null;
+        size--;
+        return deleted;
+    }
+
+    public int delete(int index) throws Exception {
+        if (head == null) {
+            throw new Exception("Cannot delete from an empty list");
+        }
+
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+
+        if (index == 0) {
+            return deleteFirst();
+        }
+
+        if (index == size - 1) {
+            return deleteLast();
+        }
+
+        Node temp = getNode(index - 1);
+        int deleted = temp.next.value;
+        temp.next = temp.next.next;
         size--;
         return deleted;
     }
@@ -130,7 +153,6 @@ public class CustomLinkedList {
         }
         return temp;
     }
-
 
     public void display() {
         Node temp = head;
