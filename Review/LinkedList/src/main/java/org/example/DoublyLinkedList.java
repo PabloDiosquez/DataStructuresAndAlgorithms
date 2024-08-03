@@ -1,6 +1,6 @@
 package org.example;
 
-public class DoubleLinkedList {
+public class DoublyLinkedList {
 
     public class Node{
         private int value;
@@ -21,5 +21,25 @@ public class DoubleLinkedList {
         public String toString() {
             return String.format("%s", value);
         }
+    }
+
+    private Node head;
+    private Node tail;
+
+    private int size;
+    public DoublyLinkedList() {
+        size = 0;
+    }
+
+    public void insertFirst(int value){
+        Node node = new Node(value, head, null);
+        if(head == null){
+            head = node;
+            tail = node;
+            return;
+        }
+        head.prev = node;
+        head = node;
+        size++;
     }
 }
