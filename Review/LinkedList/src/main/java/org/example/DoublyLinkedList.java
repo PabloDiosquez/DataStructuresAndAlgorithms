@@ -55,29 +55,49 @@ public class DoublyLinkedList {
         size++;
     }
 
-    public void insert(int index, int value){
-        if(index == 0 || head == null){
+    public void insert(int index, int value) {
+        if (index < 0 || index > size) {
+            System.out.println("Index out of bounds");
+            return;
+        }
+
+        if (index == 0) {
             insertFirst(value);
             return;
         }
 
-        if(index == size-1){
+        if (index == size) {
             insertLast(value);
             return;
         }
+
         Node temp = find(index);
-        Node node = new Node(value, temp.next, temp);
-        temp.next.prev = node;
-        temp.next = node;
+        if (temp == null) {
+            System.out.println("Does not exist");
+            return;
+        }
+
+        Node node = new Node(value, temp, temp.prev);
+        if (temp.prev != null) {
+            temp.prev.next = node;
+        }
+        temp.prev = node;
+
+        size++;
     }
 
-    private Node find(int index){
+    private Node find(int index) {
+        if (index < 0 || index >= size) {
+            return null;
+        }
+
         Node temp = head;
-        for (int i = 1; i < index; i++) {
+        for (int i = 0; i < index; i++) {
             temp = temp.next;
         }
         return temp;
     }
+
 
     public void display(){
         if(head == null){
