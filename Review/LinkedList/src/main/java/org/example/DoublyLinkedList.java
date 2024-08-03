@@ -43,12 +43,17 @@ public class DoublyLinkedList {
             System.out.println("the list is empty");
             return;
         }
+        StringBuilder sb = new StringBuilder();
         Node temp = head;
         while(temp != null){
-            System.out.print(temp.value + " <-> ");
+            sb.append(temp.value);
+            if(temp.next != null){
+                sb.append(" <-> ");
+            }
             temp = temp.next;
         }
-        System.out.print("END");
+        sb.append(" END");
+        System.out.println(sb.toString());
     }
 
     public void displayRev(){
@@ -61,10 +66,15 @@ public class DoublyLinkedList {
             temp = temp.next;
         }
 
-        while(temp != null){
-            System.out.print(temp + " <-> ");
+        StringBuilder sb = new StringBuilder();
+        while (temp != null){
+            sb.append(temp.value);
+            if(temp.prev != null){
+                sb.append(" <-> ");
+            }
             temp = temp.prev;
         }
-        System.out.print("END");
+        sb.append(" END");
+        System.out.println(sb.toString());
     }
 }
