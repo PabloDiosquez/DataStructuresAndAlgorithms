@@ -51,7 +51,7 @@ public class Main {
             System.out.println();
             list.deleteLast();
             list.display();
-            */
+
 
             DoublyLinkedList list = new DoublyLinkedList();
 
@@ -65,7 +65,19 @@ public class Main {
             System.out.println();
             list.insert(2, 100);
             list.display();
+             */
 
+            CLL list = new CLL();
+
+            list.insert(32);
+            list.insert(12);
+            list.insert(65);
+            list.insert(23);
+            list.insert(3);
+            list.display();
+            System.out.println();
+            list.delete(65);
+            list.display();
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
