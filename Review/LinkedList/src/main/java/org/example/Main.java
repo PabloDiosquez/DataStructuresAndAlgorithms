@@ -3,83 +3,80 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         try {
-            /*
-            // Create a new linked list
-            LinkedList list = new LinkedList();
+            // Test singly linked list
+            testLinkedList();
 
-            // Insert nodes into the linked list
-            list.insert(12);
-            list.insert(21);
-            list.insert(133);
+            // Test custom linked list
+            testCustomLinkedList();
 
-            // Display the linked list
-            System.out.println("Current List:");
-            list.show();
-            System.out.println();
+            // Test doubly linked list
+            testDoublyLinkedList();
 
-            // Optionally delete nodes and display the list again
-            // Uncomment the following lines to test the delete operations
-
-            // list.deleteAt(2); // Deletes the node at index 2
-            // list.deleteAtEnd(); // Deletes the last node in the list
-
-            // Display the linked list after deletions
-            System.out.println("List after deletions:");
-            list.show();
-
-            // Display the node at index 1
-            System.out.println();
-            System.out.println("Node at index 1:");
-            list.show(1);
-
-
-            CustomLinkedList list = new CustomLinkedList();
-
-            list.insertFirst(12);
-            list.insertFirst(3);
-            list.insertFirst(54);
-            list.insertFirst(67);
-            list.insertFirst(9);
-            list.insertFirst(2);
-            list.insertLast(1900);
-            list.insert(101, 5);
-
-            System.out.println();
-            list.display();
-            list.deleteLast();
-            list.display();
-            System.out.println();
-            list.deleteLast();
-            list.display();
-
-
-            DoublyLinkedList list = new DoublyLinkedList();
-
-            list.insertLast(12);
-            list.insertLast(21);
-            list.insertLast(33);
-            list.insertLast(45);
-            list.insertLast(89);
-
-            list.display();
-            System.out.println();
-            list.insert(2, 100);
-            list.display();
-             */
-
-            CLL list = new CLL();
-
-            list.insert(32);
-            list.insert(12);
-            list.insert(65);
-            list.insert(23);
-            list.insert(3);
-            list.display();
-            System.out.println();
-            list.delete(65);
-            list.display();
+            // Test circular linked list
+            testCircularLinkedList();
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
     }
+
+    private static void testLinkedList() {
+        LinkedList list = new LinkedList();
+        list.insert(12);
+        list.insert(21);
+        list.insert(133);
+        System.out.println("Current LinkedList:");
+        list.show();
+        System.out.println();
+    }
+
+    private static void testCustomLinkedList() throws Exception {
+        CustomLinkedList list = new CustomLinkedList();
+        list.insertFirst(12);
+        list.insertFirst(3);
+        list.insertFirst(54);
+        list.insertFirst(67);
+        list.insertFirst(9);
+        list.insertFirst(2);
+        list.insertLast(1900);
+        list.insert(101, 5);
+        System.out.println("CustomLinkedList after insertions:");
+        list.display();
+        list.deleteLast();
+        System.out.println("CustomLinkedList after deleting last element:");
+        list.display();
+        list.deleteLast();
+        System.out.println("CustomLinkedList after another deletion:");
+        list.display();
+    }
+
+    private static void testDoublyLinkedList() {
+        DoublyLinkedList list = new DoublyLinkedList();
+        list.insertLast(12);
+        list.insertLast(21);
+        list.insertLast(33);
+        list.insertLast(45);
+        list.insertLast(89);
+        System.out.println("DoublyLinkedList after insertions:");
+        list.display();
+        System.out.println();
+        list.insert(2, 100);
+        System.out.println("DoublyLinkedList after insertion at index 2:");
+        list.display();
+    }
+
+    private static void testCircularLinkedList() throws Exception {
+        CLL list = new CLL();
+        list.insert(32);
+        list.insert(12);
+        list.insert(65);
+        list.insert(23);
+        list.insert(3);
+        System.out.println("CircularLinkedList after insertions:");
+        list.display();
+        System.out.println();
+        list.delete(65);
+        System.out.println("CircularLinkedList after deleting 65:");
+        list.display();
+    }
 }
+
