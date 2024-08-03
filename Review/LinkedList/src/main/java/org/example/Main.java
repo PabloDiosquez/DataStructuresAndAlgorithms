@@ -60,9 +60,10 @@ public class Main {
             list.insertFirst(31);
             list.insertFirst(54);
             list.insertFirst(145);
+            list.insertLast(-1222);
             list.display();
             System.out.println();
-            list.displayRev();
+            list.displayBackwards();
 
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());

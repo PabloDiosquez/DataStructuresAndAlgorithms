@@ -38,6 +38,19 @@ public class DoublyLinkedList {
         size++;
     }
 
+    public void insertLast(int value){
+        if(head == null){
+            insertFirst(value);
+            return;
+        }
+        Node temp = head;
+        while(temp.next != null){
+            temp = temp.next;
+        }
+        temp.next = new Node(value, null, temp);
+        size++;
+    }
+
     public void display(){
         if(head == null){
             System.out.println("the list is empty");
@@ -56,7 +69,7 @@ public class DoublyLinkedList {
         System.out.println(sb.toString());
     }
 
-    public void displayRev(){
+    public void displayBackwards(){
         if(head == null){
             System.out.println("the list is empty");
             return;
