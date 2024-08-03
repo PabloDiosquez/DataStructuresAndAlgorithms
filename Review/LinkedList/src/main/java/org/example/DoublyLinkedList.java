@@ -29,6 +29,10 @@ public class DoublyLinkedList {
         size = 0;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public void insertFirst(int value){
         Node node = new Node(value, head, null);
         if(head != null){
@@ -43,12 +47,36 @@ public class DoublyLinkedList {
             insertFirst(value);
             return;
         }
+        Node last = head;
+        while(last.next != null){
+            last = last.next;
+        }
+        last.next = new Node(value, null, last);
+        size++;
+    }
+
+    public void insert(int index, int value){
+        if(index == 0 || head == null){
+            insertFirst(value);
+            return;
+        }
+
+        if(index == size-1){
+            insertLast(value);
+            return;
+        }
+        Node temp = find(index);
+        Node node = new Node(value, temp.next, temp);
+        temp.next.prev = node;
+        temp.next = node;
+    }
+
+    private Node find(int index){
         Node temp = head;
-        while(temp.next != null){
+        for (int i = 1; i < index; i++) {
             temp = temp.next;
         }
-        temp.next = new Node(value, null, temp);
-        size++;
+        return temp;
     }
 
     public void display(){
@@ -74,18 +102,18 @@ public class DoublyLinkedList {
             System.out.println("the list is empty");
             return;
         }
-        Node temp = head;
-        while(temp.next != null){
-            temp = temp.next;
+        Node last = head;
+        while(last.next != null){
+            last = last.next;
         }
 
         StringBuilder sb = new StringBuilder();
-        while (temp != null){
-            sb.append(temp.value);
-            if(temp.prev != null){
+        while (last != null){
+            sb.append(last.value);
+            if(last.prev != null){
                 sb.append(" <-> ");
             }
-            temp = temp.prev;
+            last = last.prev;
         }
         sb.append(" END");
         System.out.println(sb.toString());

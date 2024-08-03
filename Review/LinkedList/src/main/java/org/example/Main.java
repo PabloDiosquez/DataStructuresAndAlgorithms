@@ -55,15 +55,16 @@ public class Main {
 
             DoublyLinkedList list = new DoublyLinkedList();
 
-            list.insertFirst(12);
-            list.insertFirst(18);
-            list.insertFirst(31);
-            list.insertFirst(54);
-            list.insertFirst(145);
-            list.insertLast(-1222);
+            list.insertLast(12);
+            list.insertLast(21);
+            list.insertLast(33);
+            list.insertLast(45);
+            list.insertLast(89);
+
             list.display();
             System.out.println();
-            list.displayBackwards();
+            list.insert(2, 100);
+            list.display();
 
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
