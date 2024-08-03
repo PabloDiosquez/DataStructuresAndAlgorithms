@@ -31,7 +31,7 @@ public class Main {
             System.out.println();
             System.out.println("Node at index 1:");
             list.show(1);
-            */
+
 
             CustomLinkedList list = new CustomLinkedList();
 
@@ -51,6 +51,18 @@ public class Main {
             System.out.println();
             list.deleteLast();
             list.display();
+            */
+
+            DoublyLinkedList list = new DoublyLinkedList();
+
+            list.insertFirst(12);
+            list.insertFirst(18);
+            list.insertFirst(31);
+            list.insertFirst(54);
+            list.insertFirst(145);
+            list.display();
+            System.out.println();
+            list.displayRev();
 
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());

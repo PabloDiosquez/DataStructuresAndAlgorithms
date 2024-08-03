@@ -24,8 +24,6 @@ public class DoublyLinkedList {
     }
 
     private Node head;
-    private Node tail;
-
     private int size;
     public DoublyLinkedList() {
         size = 0;
@@ -33,13 +31,40 @@ public class DoublyLinkedList {
 
     public void insertFirst(int value){
         Node node = new Node(value, head, null);
-        if(head == null){
-            head = node;
-            tail = node;
-            return;
+        if(head != null){
+            head.prev = node;
         }
-        head.prev = node;
         head = node;
         size++;
+    }
+
+    public void display(){
+        if(head == null){
+            System.out.println("the list is empty");
+            return;
+        }
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.value + " <-> ");
+            temp = temp.next;
+        }
+        System.out.print("END");
+    }
+
+    public void displayRev(){
+        if(head == null){
+            System.out.println("the list is empty");
+            return;
+        }
+        Node temp = head;
+        while(temp.next != null){
+            temp = temp.next;
+        }
+
+        while(temp != null){
+            System.out.print(temp + " <-> ");
+            temp = temp.prev;
+        }
+        System.out.print("END");
     }
 }
