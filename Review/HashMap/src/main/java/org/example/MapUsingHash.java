@@ -28,15 +28,27 @@ public class MapUsingHash {
     }
 
     public void put(String key, String value){
-        int hash = Math.abs(key.hashCode() % entities.length);
+        int hash = hash(key);
         entities[hash] = new Entity(key, value);
     }
 
     public String get(String key){
-        int hash = Math.abs(key.hashCode() % entities.length);
+        int hash = hash(key);
         if(entities[hash] != null && entities[hash].getKey().equals(key)){
             return entities[hash].getValue();
         }
         return null;
+    }
+
+    public void remove(String key){
+        int hash = hash(key);
+        if(entities[hash] != null && entities[hash].getKey().equals(key)){
+            entities[hash] = null;
+        }
+        System.out.println("key not found");
+    }
+
+    private int hash(String key){
+        return Math.abs(key.hashCode() % entities.length);
     }
 }
