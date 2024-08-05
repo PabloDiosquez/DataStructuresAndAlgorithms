@@ -30,6 +30,15 @@ public class Heap<T extends Comparable<T>> {
         return removed;
     }
 
+    //O(N * logN)
+    public ArrayList<T> heapSort() throws Exception{
+        ArrayList<T> data = new ArrayList<>();
+        while(!list.isEmpty()){
+            data.add(this.remove());
+        }
+        return data;
+    }
+
     private void downHeap(int index) {
         int min = index;
         int left = left(index);
