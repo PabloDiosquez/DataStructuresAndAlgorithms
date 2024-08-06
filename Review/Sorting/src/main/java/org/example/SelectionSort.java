@@ -1,3 +1,5 @@
+package org.example;
+
 /**
  * This class provides a static method to perform Selection Sort on an array of integers.
  * Selection Sort is an in-place comparison sorting algorithm with O(n^2) time complexity.
@@ -28,7 +30,7 @@ public class SelectionSort {
      */
     private static int getMaxIndex(int[] arr, int start, int end) {
         int max = start;
-        for (int i = start; i < end; i++) {
+        for (int i = start; i <= end; i++) {
             if (arr[i] > arr[max]) {
                 max = i;
             }
