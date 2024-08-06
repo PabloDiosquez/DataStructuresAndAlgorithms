@@ -4,11 +4,6 @@ import java.util.Arrays;
 
 public class Main {
 
-    /**
-     * The main method where different test cases are used to demonstrate the sorting algorithm.
-     *
-     * @param args command-line arguments (not used)
-     */
     public static void main(String[] args) {
         // Test case 1: Regular array with mixed values
         int[] arr1 = {3, 4, 7, 1, 22};
