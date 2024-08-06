@@ -7,7 +7,8 @@ public class Main {
     public static void main(String[] args) {
         // Test case 1: Regular array with mixed values
         int[] arr1 = {3, 4, 7, 1, 22};
-        SelectionSort.sort(arr1);
+        //SelectionSort.sort(arr1);
+        QuickSort.sort(arr1);
         System.out.println("Sorted arr1 = " + Arrays.toString(arr1));
 
         // Test case 2: Array already sorted

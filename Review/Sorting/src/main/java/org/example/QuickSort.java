@@ -7,7 +7,16 @@ package org.example;
 public class QuickSort {
 
     /**
-     * Sorts the given array using the quicksort algorithm.
+     * Sorts the entire array using the quicksort algorithm.
+     *
+     * @param arr the array to be sorted
+     */
+    public static void sort(int[] arr) {
+        sort(arr, 0, arr.length - 1);
+    }
+
+    /**
+     * Sorts the given portion of the array using the quicksort algorithm.
      *
      * @param arr  the array to be sorted
      * @param low  the starting index of the portion of the array to be sorted
@@ -22,7 +31,7 @@ public class QuickSort {
      *
      * The space complexity of this in-place implementation is O(log n) due to the recursive call stack.
      */
-    public static void sort(int[] arr, int low, int high) {
+    private static void sort(int[] arr, int low, int high) {
         if (low >= high) {
             return;
         }
