@@ -1,36 +1,44 @@
 package org.example;
 
+import java.util.Arrays;
+
 public class MergeSort {
 
     public static int[] sort(int[] arr){
-        return sort(arr, 0, arr.length - 1);
-    }
-
-    private static int[] sort(int[] arr, int start, int end){
-        if (start >= end) {
-            return new int[]{arr[start]};
+        if(arr.length == 1){
+            return arr;
         }
-        int middle = start + (end - start) / 2;
-        int[] left = sort(arr, start, middle);
-        int[] right = sort(arr, middle + 1, end);
+        int middle = arr.length / 2;
+        int[] left = sort(Arrays.copyOfRange(arr, 0, middle));
+        int[] right = sort(Arrays.copyOfRange(arr, middle, arr.length));
         return merge(left, right);
     }
 
     private static int[] merge(int[] first, int[] second){
-        int s = 0; int e = 0; int k = 0;
-        int[] merged = new int[first.length + second.length];
-        while(s < first.length && e < second.length){
-            if(first[s] < second[e]){
-                merged[k] = first[s];
-                s++;
+        int[] mix = new int[first.length + second.length];
+        int i = 0, j = 0, k = 0;
+
+        while(i < first.length && j < second.length){
+            if(first[i] <= second[j]){
+                mix[k] = first[i];
+                i++;
             } else {
-                merged[k] = second[e];
-                e++;
+                mix[k] = second[j];
+                j++;
             }
             k++;
         }
-        if (first.length - s >= 0) System.arraycopy(first, s, merged, k, first.length - s);
-        if (second.length - e >= 0) System.arraycopy(second, e, merged, k, second.length - e);
-        return merged;
+        copy(first, mix, i, k);
+        copy(second, mix, j, k);
+        return mix;
     }
+
+    private static void copy(int[] old, int[] arr, int startOld, int startNew) {
+        while (startOld < old.length) {
+            arr[startNew] = old[startOld];
+            startOld++;
+            startNew++;
+        }
+    }
+
 }
