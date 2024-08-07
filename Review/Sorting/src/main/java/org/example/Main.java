@@ -12,8 +12,9 @@ public class Main {
 
         // Test case 2: Array already sorted
         int[] arr2 = {1, 2, 3, 4, 5};
-        QuickSort.sort(arr2);
-        System.out.println("Sorted arr2 = " + Arrays.toString(arr2));
+        //QuickSort.sort(arr2);
+
+        System.out.println("Sorted arr2 = " + Arrays.toString(MergeSort.sort(arr2)));
 
         // Test case 3: Array sorted in descending order
         int[] arr3 = {5, 4, 3, 2, 1};
