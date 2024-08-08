@@ -14,6 +14,14 @@ public class MergeSort {
         return merge(left, right);
     }
 
+    public static void sorted(int[] arr){
+
+    }
+
+    private static void sorted(int[] arr, int start, int end){
+        
+    }
+
     private static int[] merge(int[] first, int[] second){
         int[] mix = new int[first.length + second.length];
         int i = 0, j = 0, k = 0;
