@@ -4,7 +4,6 @@ package org.example;
  * The Fibonacci class provides a method to calculate the nth Fibonacci number.
  */
 public class Fibonacci {
-
     /**
      * Computes the nth Fibonacci number using recursion.
      *
