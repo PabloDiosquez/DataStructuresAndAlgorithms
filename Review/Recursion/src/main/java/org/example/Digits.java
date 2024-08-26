@@ -22,8 +22,8 @@ public class Digits {
      * @return the sum of the digits of the given integer
      */
     public static int sumOfDigits(int n) {
-        if (n <= 9) {
-            return n;
+        if (n == 0) {
+            return 0;
         }
         int lastDigit = n % 10;
         return sumOfDigits(n / 10) + lastDigit;
