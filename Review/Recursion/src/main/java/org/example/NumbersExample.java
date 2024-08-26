@@ -28,4 +28,17 @@ public class NumbersExample {
         System.out.print(start + " ");
         printNumbersFrom(number, start + 1);
     }
+
+    /**
+     * Recursively prints numbers from 1 to the given number.
+     *
+     * @param number the starting number to print down from
+     */
+    public static void printNumbersRecursively(int number) {
+        if (number == 0) {
+            return;
+        }
+        printNumbersRecursively(number - 1);
+        System.out.println(number);
+    }
 }
