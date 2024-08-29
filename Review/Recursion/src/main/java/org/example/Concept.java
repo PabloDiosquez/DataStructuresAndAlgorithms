@@ -29,6 +29,7 @@ public class Concept {
             return;
         }
         System.out.println(n);
+        // fun(n--)
         // Pre-decrement: decreases n before the next recursive call
         fun(--n);
     }
