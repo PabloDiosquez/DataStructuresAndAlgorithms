@@ -2,7 +2,7 @@ package org.example;
 
 public class Reverse {
     public static void main(String[] args) {
-        System.out.println(reverseNumber(14566)); // Expected output: 66541
+        System.out.println(reverseNumber(1432)); // Expected output: 66541
     }
 
     /**
@@ -23,7 +23,7 @@ public class Reverse {
      * @return the reversed integer
      */
     private static int reverseNumberHelper(int n, int digits) {
-        if (n <= 9) {
+        if (n == n % 10) {
             return n;
         }
         int remainder = n % 10;
