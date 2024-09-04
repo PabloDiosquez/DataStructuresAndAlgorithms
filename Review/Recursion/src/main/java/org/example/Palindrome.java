@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The {@code Palindrome} class provides methods to determine if a given integer is a palindrome.
  * A palindrome is a number that reads the same backward as forward.
@@ -13,8 +16,8 @@ public class Palindrome {
      * @param args Command-line arguments (not used).
      */
     public static void main(String[] args) {
-        System.out.println(palindrome(1223221));  // should return true
-        System.out.println(palindrome(1223421));  // should return false
+        System.out.println(palindrome(121));  // should return true
+        System.out.println(palindrome(124));  // should return false
     }
 
     /**
