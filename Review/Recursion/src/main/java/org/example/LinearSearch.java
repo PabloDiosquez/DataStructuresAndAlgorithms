@@ -19,12 +19,27 @@ public class LinearSearch {
         System.out.println(getElementPositions(arr, 4));
     }
 
-    static boolean elementInArr(int[] arr, int key){
+    /**
+     * Checks if a given key is present in the array.
+     *
+     * @param arr the array of integers to search in
+     * @param key the integer to find in the array
+     * @return true if the key is found in the array, false otherwise
+     */
+    static boolean elementInArr(int[] arr, int key) {
         return elementInArrSince(arr, key, 0);
     }
 
+    /**
+     * Recursively checks if a given key is present in the array starting from a specific index.
+     *
+     * @param arr the array of integers to search in
+     * @param key the integer to find in the array
+     * @param s the starting index from which to search the array
+     * @return true if the key is found from the start index onward, false otherwise
+     */
     private static boolean elementInArrSince(int[] arr, int key, int s) {
-        if(s == arr.length){
+        if(s == arr.length) {
             return false;
         }
         return arr[s] == key || elementInArrSince(arr, key, s+1);
