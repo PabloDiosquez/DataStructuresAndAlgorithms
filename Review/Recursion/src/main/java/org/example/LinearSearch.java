@@ -19,6 +19,18 @@ public class LinearSearch {
         System.out.println(getElementPositions(arr, 4));
     }
 
+    static boolean elementInArr(int[] arr, int key){
+        return elementInArrSince(arr, key, 0);
+    }
+
+    private static boolean elementInArrSince(int[] arr, int key, int s) {
+        if(s == arr.length){
+            return false;
+        }
+        return arr[s] == key || elementInArrSince(arr, key, s+1);
+    }
+
+
     /**
      * Returns the positions of all occurrences of a specified element in the array.
      *
