@@ -15,8 +15,7 @@ public class LinearSearch {
      */
     public static void main(String[] args) {
         int[] arr = new int[] {3, 5, 12, 4, 7, 0, 4};
-        // System.out.println(search(arr, 4));
-        System.out.println(getElementPositions(arr, 4));
+        System.out.println(findAllIndex(arr, 4));
     }
 
     /**
@@ -45,7 +44,6 @@ public class LinearSearch {
         return arr[s] == key || elementInArrSince(arr, key, s+1);
     }
 
-
     /**
      * Returns the positions of all occurrences of a specified element in the array.
      *
@@ -53,9 +51,8 @@ public class LinearSearch {
      * @param key the element to find the positions of.
      * @return an {@code ArrayList} containing the positions of the element in the array.
      */
-    static ArrayList<Integer> getElementPositions(int[] arr, int key) {
-        ArrayList<Integer> positions = new ArrayList<>();
-        return helperGetElementPositions(arr, key, positions, 0);
+    static ArrayList<Integer> findAllIndex(int[] arr, int key) {
+        return helperFindAllIndex(arr, key, new ArrayList<>(), 0);
     }
 
     /**
@@ -67,14 +64,14 @@ public class LinearSearch {
      * @param s the starting index for the search.
      * @return an {@code ArrayList} containing the positions of the element in the array.
      */
-    private static ArrayList<Integer> helperGetElementPositions(int[] arr, int key, ArrayList<Integer> positions, int s) {
+    private static ArrayList<Integer> helperFindAllIndex(int[] arr, int key, ArrayList<Integer> positions, int s) {
         if (s == arr.length) {
             return positions;
         }
         if (arr[s] == key) {
             positions.add(s);
         }
-        return helperGetElementPositions(arr, key, positions, s + 1);
+        return helperFindAllIndex(arr, key, positions, s + 1);
     }
 
     /**
@@ -84,8 +81,8 @@ public class LinearSearch {
      * @param key the element to find.
      * @return the index of the first occurrence of the element, or -1 if not found.
      */
-    static int search(int[] arr, int key) {
-        return helper(arr, key, 0);
+    static int find(int[] arr, int key) {
+        return helperFind(arr, key, 0);
     }
 
     /**
@@ -96,10 +93,10 @@ public class LinearSearch {
      * @param s the starting index for the search.
      * @return the index of the first occurrence of the element, or -1 if not found.
      */
-    private static int helper(int[] arr, int key, int s) {
+    private static int helperFind(int[] arr, int key, int s) {
         if (s == arr.length) {
             return -1;
         }
-        return (arr[s] == key) ? s : helper(arr, key, s + 1);
+        return (arr[s] == key) ? s : helperFind(arr, key, s + 1);
     }
 }
