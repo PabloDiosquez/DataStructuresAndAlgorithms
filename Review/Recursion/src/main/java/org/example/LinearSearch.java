@@ -17,18 +17,43 @@ public class LinearSearch {
     public static void main(String[] args) {
         int[] arr = new int[] {3, 5, 12, 4, 4, 0, 4};
         System.out.println(findAllIndex(arr, 4));
-        System.out.println(findIndexes(arr, 4,0));
+        System.out.println(findAllIndexV(arr, 4));
     }
 
-    static List<Integer> findIndexes(int[] arr, int target, int s){
+    /**
+     * Finds all occurrences of a target value in an array and returns their indices.
+     *
+     * This method searches through the `arr` array for all positions where the `target` value appears
+     * and returns a list of integers containing the indices of those occurrences.
+     *
+     * @param arr    The array of integers to search for the target value.
+     * @param target The target value to find within the array.
+     * @return A list of integers containing the indices where the `target` value appears in the array.
+     */
+    static List<Integer> findAllIndexV(int[] arr, int target) {
+        return helperFindAllIndexV(arr, target, 0);
+    }
+
+    /**
+     * Recursive helper method that performs the search for the target value in the array.
+     *
+     * This method traverses the array starting at the position indicated by `s`, comparing each element
+     * with the target value. If the target is found, its index is added to the result list.
+     *
+     * @param arr    The array of integers to search through.
+     * @param target The target value to find.
+     * @param s      The starting index for the search in the array.
+     * @return A list of integers containing the indices of the target value found in the array.
+     */
+    static List<Integer> helperFindAllIndexV(int[] arr, int target, int s) {
         List<Integer> indexes = new ArrayList<>();
-        if(s == arr.length){
+        if (s == arr.length) {
             return indexes;
         }
-        if(arr[s] == target){
+        if (arr[s] == target) {
             indexes.add(s);
         }
-        indexes.addAll(findIndexes(arr, target, s+1));
+        indexes.addAll(helperFindAllIndexV(arr, target, s + 1));
         return indexes;
     }
 
