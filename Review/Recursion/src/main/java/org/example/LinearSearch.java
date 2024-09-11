@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class provides methods to perform linear search on an array and return
@@ -14,8 +15,21 @@ public class LinearSearch {
      * @param args command-line arguments (not used).
      */
     public static void main(String[] args) {
-        int[] arr = new int[] {3, 5, 12, 4, 7, 0, 4};
+        int[] arr = new int[] {3, 5, 12, 4, 4, 0, 4};
         System.out.println(findAllIndex(arr, 4));
+        System.out.println(findIndexes(arr, 4,0));
+    }
+
+    static List<Integer> findIndexes(int[] arr, int target, int s){
+        List<Integer> indexes = new ArrayList<>();
+        if(s == arr.length){
+            return indexes;
+        }
+        if(arr[s] == target){
+            indexes.add(s);
+        }
+        indexes.addAll(findIndexes(arr, target, s+1));
+        return indexes;
     }
 
     /**
