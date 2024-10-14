@@ -11,7 +11,42 @@ public class Triangle {
      * @param args Command-line arguments (not used).
      */
     public static void main(String[] args) {
-        printTriangle(4);
+        //printTriangle(4);
+        fun(4);
+    }
+
+    /**
+     * Prints a pattern of asterisks based on the given number of lines.
+     * The pattern starts with 'n' asterisks in the first line, 'n-1' in the second line,
+     * and continues decreasing by one asterisk per line until there is one asterisk in the last line.
+     *
+     * @param n The number of lines and the maximum number of asterisks in the first line.
+     */
+    public static void fun(int n) {
+        _fun(n, 0);
+    }
+
+    /**
+     * Recursively prints the pattern of asterisks.
+     * This private helper method controls the number of rows and columns
+     * while printing the pattern.
+     *
+     * @param r The current row number (number of asterisks to print in the current line).
+     * @param c The current column number (tracks the number of asterisks printed so far on the current line).
+     */
+    private static void _fun(int r, int c) {
+        if (r == 0) {
+            return;
+        }
+
+        if (c < r) {
+            System.out.print("*");
+            _fun(r, c + 1);
+        } else {
+
+            System.out.println();
+            _fun(r - 1, 0); // Reset column counter to 0 for the new row
+        }
     }
 
     /**
